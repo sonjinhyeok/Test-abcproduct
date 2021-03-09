@@ -1,0 +1,241 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.header {
+    height: 10vh;
+    width: 100%;
+    text-align: center;
+}
+
+/* SideBar */
+.sidebar{
+    background-color: #263343;
+    width: 20vw;
+    height: 100vh;
+    float: left;
+}
+
+.sidemenu-header{
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    font-size: 2rem;
+}
+
+.sidebar-menu {
+    padding: 15px 30px;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+}
+
+.sidebar-menu:hover {
+    background-color: #d49466;
+}
+
+.sidebar-text {
+    margin-left: 4px;
+}
+
+.container{
+    width: 80vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    float: left;
+}
+.icon-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+    width: 400px;
+    height: 250px;
+    color: #263343;
+    border: 1px solid #263343;
+    border-radius: 15px;
+}
+.icon-box:hover {
+    color: white;
+    background-color: #9db0c8;
+    border: 1px solid #9db0c8;
+}
+
+.icon-box-icon {
+    font-size: 8rem;
+}
+
+.icon-box-name {
+    font-size: 1.8rem;
+}   
+
+.sidebar-togglebtn {
+    display: none;
+    color: white;
+    font-size: 2rem;
+    left: 24px;
+    cursor: pointer;
+}
+
+/* Form */
+.search-form {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+}
+
+.search-form-input {
+    width: 30rem;
+    font-size: 1.5rem;
+    padding: 4px;
+}
+
+.search-form-input::placeholder {
+    opacity: 0.3;
+    font-size: 1rem;
+    vertical-align: center;
+}
+
+.search-form-btn {
+    margin-left: 8px;
+    width: 7rem;
+    color: white;
+    background-color: #263343;
+    border-radius: 10px;
+}
+
+.search-form-btn:hover {
+    background-color: white;
+    color: #263343;
+    border: 1px solid #263343;
+}
+
+/* Table */
+.item-table {
+    margin-top: 5rem;
+    width: 80%;
+    text-align: center;
+    border-collapse: collapse;
+    font-size: 1rem;
+}
+
+.item-table td, th {
+    border: 1px solid #dddddd;
+    padding: 0.5rem 1rem;
+}
+
+tr:nth-child(odd) {
+    background-color: #9db0c8;
+}
+
+/* Buttons */
+/* Page Button */
+.page-buttons-container{
+    display: flex;
+}
+
+.page-buttons {
+    margin: 2rem 0 0 1rem ;
+}
+.page-button {
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid #263343;
+    border-radius: 4px;
+    color: #263343;
+}
+
+.page-button:hover {
+    background-color: #263343;
+    color: white;
+}
+
+/* Add Button */
+.add-button {
+    width: 8rem;
+    height: 3rem;
+    border: 1px solid sandybrown;
+    border-radius: 4px;
+    background-color: sandybrown;
+    color: white;
+    position: absolute;
+    right: 10%;
+}
+
+.add-button:hover {
+    color: sandybrown;
+    background-color: white;
+}
+
+/* Cancle Button */
+.cancle-button {
+    width: 8rem;
+    height: 50px;
+    border: 1px solid red;
+    border-radius: 4px;
+    background-color: red;
+    color: white;
+}
+
+/* レスポンシブデザイン */
+@media screen and (max-width:768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+    }
+    .sidebar-togglebtn {
+        position: absolute;
+        display: block;
+    }
+    .container { 
+        width: 100%;
+    }
+
+    .icon-box {
+        width: 400px;
+        height: 150px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content:space-evenly;
+    }
+
+    .icon-box-icon {
+        font-size: 5rem;
+    }
+    
+    .icon-box-name {
+        font-size: 2.5rem;
+    }  
+
+    .page-buttons {
+        margin: 2rem 0 0 0.5rem ;
+    }
+    
+    .page-button {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .add-button {
+        width: 5rem;
+        height: 40px;
+        
+    }
+}

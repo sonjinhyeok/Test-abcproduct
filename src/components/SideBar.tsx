@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import SidebarItem from "./SidebarItem";
+import SideBarMenu from './SideBarMenu';
 
 const menus = [
     { name: "ホーム", path: "/" , icon: "sidemenu-icon fa fa-home" },
     { name: "在庫管理", path: "/stocks", icon: "sidemenu-icon fa fa-list" },
     { name: "受注管理", path: "/orders", icon: "sidemenu-icon fa fa-clipboard"}
-  ];
+];
 
 const SideBar = () => {
+    const [showMenu , setShowMenu] = useState(true);
     
     return(
         <>
@@ -16,17 +17,21 @@ const SideBar = () => {
             <h1 className="sidemenu-header">
                 <i
                 className="sidebar-togglebtn fa fa-bars"
+                onClick={() => setShowMenu(!showMenu)}
                 >
                 </i>
                 ABCProduct
             </h1>
-            {menus.map((menu, index) => {
-                return (
-                    <Link to={menu.path} key={index}>
-                        <SidebarItem menu={menu}/>
-                    </Link>
-                );
-            })}
+                {showMenu ? 
+                menus.map((menu, index) => {
+                    return (
+                        <Link to={menu.path} key={index}>
+                            <SideBarMenu menu={menu}/>
+                        </Link>
+                    );
+                })
+                : ''
+                }
         </ul>
         </>
     );

@@ -1,10 +1,15 @@
+import Form from '../components/Form';
 import Header from '../components/Header';
+import PageButton from '../components/PageButton';
+import Table from '../components/Table';
 
 const Stock = () => {
     return(
         <div className="container">
             <Header />
-            <h1>Stocks 画面</h1>
+            <Form />
+            <Table />
+            <PageButton />
         </div>
     );
 }
