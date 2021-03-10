@@ -1,8 +1,7 @@
 import React from 'react';
-
-const Table = () => {
+const ItemTable = () => {
     return(
-        <table className="item-table">
+        <table className="table">
             <tr>
                 <th>ID</th>
                 <th>商品名</th>
@@ -11,7 +10,7 @@ const Table = () => {
                 <th>倉庫名</th>
             </tr>
             <tr>
-                <td>１</td>
+                <td>1</td>
                 <td>abc</td>
                 <td>3</td>
                 <td>100</td>
@@ -49,4 +48,4 @@ const Table = () => {
     );
 }
 
-export default Table;
+export default ItemTable;

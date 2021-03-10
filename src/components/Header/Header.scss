@@ -1,0 +1,12 @@
+.header__title {
+    margin-top: 5rem;
+    width: 80%;
+    text-align: left;
+}
+
+$media-phone: 768px;
+@media (max-width: $media-phone) {
+    .header__title {
+        margin-top: 2rem;
+    }
+}

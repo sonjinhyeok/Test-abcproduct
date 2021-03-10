@@ -1,0 +1,55 @@
+.buttons{
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+}
+.buttons__button{
+    margin-left: 1rem;
+
+    &__delete{
+        width: 8rem;
+        height: 50px;
+        border-radius: 4px;
+        text-align: center;
+        color: white;
+        background-color: red;
+        border: 1px solid red;
+        
+        &:hover{
+            color: red;
+            background-color: white;
+        }
+    }
+    
+    &__close{
+        width: 8rem;
+        height: 50px;
+        border-radius: 4px;
+        text-align: center;
+        color: white;
+        background-color: darkorange;
+        border: 1px solid darkorange;
+        
+        &:hover{
+            color: darkorange;
+            background-color: white;
+        }
+    }
+}
+$media-phone: 768px;
+@media (max-width: $media-phone) {
+    .buttons{
+        display: block;
+    }
+    .buttons__button {
+        margin-bottom: 2rem;
+        &__delete{
+            width: 10rem;
+            height: 2.5rem;
+        }
+        &__close{
+            width: 10rem;
+            height: 2.5rem;
+        }
+    }
+}

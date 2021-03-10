@@ -1,11 +1,16 @@
 import React from 'react';
-import Header from '../components/Header';
+import DetailTable from '../components/Tables/DetailTable/DetailTable';
+import Header from '../components/Header/Header';
+import AddAndCLoseButton from '../components/Buttons/DeleteAndCloseButton/DeleteAndCloseButton';
 
 const Add = () => {
     return(
         <div className="container">
-            <Header />
-            <h1>Add 画面</h1>
+            <Header
+            title={'在庫詳細'}
+            />
+            <DetailTable />
+            <AddAndCLoseButton />
         </div>
     );
 }

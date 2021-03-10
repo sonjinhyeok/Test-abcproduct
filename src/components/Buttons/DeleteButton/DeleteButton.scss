@@ -1,0 +1,14 @@
+/* Delete Button */
+.delete-button {
+    width: 8rem;
+    height: 50px;
+    border-radius: 4px;
+    color: white;
+    border: 1px solid red;
+    background-color: red;
+    
+    &:hover {
+    color: red;
+    background-color: white;
+    }
+}

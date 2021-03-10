@@ -1,14 +1,12 @@
-import Form from '../components/Form';
-import Header from '../components/Header';
-import PageButton from '../components/PageButton';
-import Table from '../components/Table';
+import Form from '../components/Form/Form';
+import ItemTable from '../components/Tables/ItemTable/ItemTable';
+import PageButton from '../components/Buttons/PageButton/PageButton';
 
-const Stock = () => {
+const Stock = () => { 
     return(
         <div className="container">
-            <Header />
             <Form />
-            <Table />
+            <ItemTable />
             <PageButton />
         </div>
     );

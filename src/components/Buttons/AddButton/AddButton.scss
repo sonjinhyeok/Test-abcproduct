@@ -1,0 +1,24 @@
+/* Add Button */
+.add__button {
+    width: 8rem;
+    height: 3rem;
+    border: 1px solid darkorange;
+    border-radius: 4px;
+    background-color: darkorange;
+    color: white;
+    position: absolute;
+    right: 10%;
+    
+    &:hover{
+        color: darkorange;
+        background-color: white;
+    }
+}
+
+$media-phone: 768px;
+@media (max-width: $media-phone) {
+    .add__button {
+        width: 5rem;
+        height: 2rem;
+    }
+}

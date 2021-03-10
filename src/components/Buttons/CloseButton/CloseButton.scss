@@ -1,0 +1,14 @@
+/* CloseButton */
+.close__button {
+    width: 8rem;
+    height: 50px;
+    border: 1px solid sandybrown;
+    border-radius: 4px;
+    background-color: sandybrown;
+    color: white;
+    
+    &:hover{
+        color: sandybrown;
+        background-color: white;
+    }
+}
