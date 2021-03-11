@@ -2,15 +2,15 @@
 .add__button {
     width: 8rem;
     height: 3rem;
-    border: 1px solid darkorange;
+    border: 1px solid #263343;
     border-radius: 4px;
-    background-color: darkorange;
+    background-color: #263343;
     color: white;
     position: absolute;
     right: 10%;
     
     &:hover{
-        color: darkorange;
+        color: #263343;
         background-color: white;
     }
 }

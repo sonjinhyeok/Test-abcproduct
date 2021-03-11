@@ -1,4 +1,7 @@
 import React from 'react';
+import './ItemTable.scss';
+import { Link } from 'react-router-dom';
+
 const ItemTable = () => {
     return(
         <table className="table">
@@ -10,11 +13,21 @@ const ItemTable = () => {
                 <th>倉庫名</th>
             </tr>
             <tr>
-                <td>1</td>
-                <td>abc</td>
-                <td>3</td>
-                <td>100</td>
-                <td>東京倉庫</td>
+                <td>
+                    <Link to="/detail" className="link__text">1</Link>
+                </td>
+                <td>
+                    <Link to="/detail" className="link__text">abc</Link>
+                </td>
+                <td>
+                    <Link to="/detail" className="link__text">3</Link>
+                </td>
+                <td>
+                    <Link to="/detail" className="link__text">100</Link>
+                </td>
+                <td>
+                    <Link to="/detail" className="link__text">東京倉庫</Link>
+                </td>
             </tr>
             <tr>
                 <td>２</td>

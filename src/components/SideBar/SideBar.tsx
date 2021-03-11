@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import SideBarMenu from './SideBarMenu';
 import './SideBar.scss';
 
@@ -26,9 +25,10 @@ const SideBar = () => {
                 {showMenu ? 
                     menus.map((menu, index) => {
                         return (
-                            <Link to={menu.path} key={index}>
-                                <SideBarMenu menu={menu}/>
-                            </Link>
+                            <SideBarMenu 
+                            menu={menu}
+                            key={index}
+                        />
                         );
                     })
                     : ''
