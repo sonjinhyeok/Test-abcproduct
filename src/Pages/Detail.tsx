@@ -7,7 +7,7 @@ const Add = () => {
     return(
         <div className="container">
             <Header
-            title={'在庫詳細'}
+            title="在庫詳細"
             />
             <DetailTable />
             <AddAndCLoseButton />

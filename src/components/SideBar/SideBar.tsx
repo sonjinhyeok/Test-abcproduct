@@ -11,27 +11,26 @@ const menus = [
 const SideBar = () => {
     const [showMenu , setShowMenu] = useState(true);
     
+    const toggleClick = () => {
+        setShowMenu(!showMenu);
+    }
     return(
         <ul className="sidebar">
             <h1 className="sidebar__header">
                 <i
                 className="sidebar__togglebtn fa fa-bars"
-                onClick={() => setShowMenu(!showMenu)}
+                onClick={toggleClick}
                 >
                 </i>
                 ABCProduct
             </h1>
-                {showMenu ? 
-                    menus.map((menu, index) => {
-                        return (
-                            <SideBarMenu 
-                            menu={menu}
-                            key={index}
-                        />
-                        );
-                    })
-                    : ''
-                }
+                {showMenu 
+                ? menus.map((menu, index) => {
+                    return (
+                        <SideBarMenu menu={menu} key={index}/>
+                    )})
+                : ''
+                } 
         </ul>
     );
 }
