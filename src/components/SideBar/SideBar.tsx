@@ -6,7 +6,6 @@ const menus = [
     { name: "ホーム", path: "/" , icon: "sidemenu-icon fa fa-home" },
     { name: "在庫管理", path: "/stocks", icon: "sidemenu-icon fa fa-list" },
     { name: "受注管理", path: "/orders", icon: "sidemenu-icon fa fa-clipboard"},
-    { name: "在庫詳細", path: "/detail", icon: "sidemenu-icon fa fa-clipboard"},
 ];
 
 const SideBar = () => {
