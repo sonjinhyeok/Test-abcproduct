@@ -9,17 +9,28 @@ import Orders from "./Pages/Orders";
 import Detail from "./Pages/Detail";
 import Add from "./Pages/Add";
 
+
 export default function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <SideBar />
         <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/stocks" component={Stocks} />
-          <Route path="/orders" component={Orders} />
-          <Route path="/detail" component={Detail} />
-          <Route path="/add" component={Add} />
+          <Route path="/" exact>
+            <Home />
+          </Route>
+          <Route path="/stocks">
+            <Stocks />
+          </Route> 
+          <Route path="/orders">
+            <Orders />
+          </Route> 
+          <Route path="/detail">
+            <Detail />
+          </Route> 
+          <Route path="/add">
+            <Add />
+          </Route>
         </Switch>
       </BrowserRouter>
     </div>
