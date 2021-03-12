@@ -6,9 +6,6 @@
     border-radius: 4px;
     background-color: #263343;
     color: white;
-    // position: absolute;
-    // right: 10%;
-    
     &:hover{
         color: #263343;
         background-color: white;
@@ -18,7 +15,8 @@
 $media-phone: 768px;
 @media (max-width: $media-phone) {
     .add__button {
-        width: 5rem;
+        width: 10rem;
         height: 2rem;
     }
 }
+

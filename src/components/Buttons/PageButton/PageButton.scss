@@ -3,12 +3,7 @@
     &__buttons {
         margin: 2rem 0 0 1rem ;
 
-        &__add {
-            position: absolute;
-            right: 10%;
-        }
     }
-
     &__button {
         width: 3rem;
         height: 3rem;
@@ -21,6 +16,21 @@
             color: white;
         }
     }
+    &__add {
+        width: 8rem;
+        height: 3rem;
+        border: 1px solid #263343;
+        border-radius: 4px;
+        background-color: #263343;
+        color: white;
+        position: absolute;
+        right: 10%;
+        
+        &:hover{
+            color: #263343;
+            background-color: white;
+        }
+    }
 }
 
 $media-phone: 768px;
@@ -31,6 +41,10 @@ $media-phone: 768px;
          }
         &__button {
             width: 2rem;
+            height: 2rem;
+        }
+        &__add{
+            width: 5rem;
             height: 2rem;
         }
     }

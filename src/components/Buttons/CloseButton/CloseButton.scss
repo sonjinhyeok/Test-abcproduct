@@ -12,3 +12,11 @@
         background-color: white;
     }
 }
+
+$media-phone: 768px;
+@media (max-width: $media-phone) {
+    .buttons__close {
+        width: 10rem;
+        height: 2rem;
+    }
+}

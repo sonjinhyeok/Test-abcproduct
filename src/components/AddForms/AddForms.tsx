@@ -1,5 +1,4 @@
 import React from 'react';
-import AddAndCloseButton from '../Buttons/AddAndCloseButton/AddAndCloseButton';
 import './AddForms.scss';
 
 const AddForms = () => {
@@ -25,7 +24,6 @@ const AddForms = () => {
         <label className="add__label">倉庫名</label>
         <input className="add__input" type="text"/>
       </div>
-      <AddAndCloseButton />
     </form>
   );
 }

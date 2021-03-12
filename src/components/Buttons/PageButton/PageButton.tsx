@@ -1,5 +1,5 @@
 import React from 'react';
-import AddButton from '../AddButton/AddButton';
+import { Link } from 'react-router-dom';
 import './PageButton.scss'
 
 const PageButton = () => {
@@ -17,7 +17,11 @@ const PageButton = () => {
             <div className="buttons__container__buttons">
                 <button className="buttons__container__button">次</button>
             </div>
-            <div className="buttons__container__buttons"><AddButton /></div>
+            <div className="buttons__container__buttons">
+                <Link to='/add'>
+                    <button className="buttons__container__add">登録</button>
+                </Link>
+            </div>
         </div>
     );
 }
