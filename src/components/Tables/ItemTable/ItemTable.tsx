@@ -4,10 +4,6 @@ import { Link } from 'react-router-dom';
 
 const ItemTable = () => {
 
-    const tdClick = () => {
-        console.log();
-        
-    }
     return(
         <table className="table">
             <tr>
@@ -18,11 +14,11 @@ const ItemTable = () => {
                 <th>倉庫名</th>
             </tr>
             <tr>
-                <Link to="/detail"><td>1</td></Link>
-                <td>商品名</td>
-                <td>商品数</td>
-                <td>単価</td>
-                <td>倉庫名</td>
+                <td>1</td>
+                <td><Link to="/detail" className="link__text">商品名</Link></td>
+                <td><Link to="/detail" className="link__text">商品数</Link></td>
+                <td><Link to="/detail" className="link__text">単価</Link></td>
+                <td><Link to="/detail" className="link__text">倉庫名</Link></td>
             </tr>
             <tr>
                 <td>２</td>
