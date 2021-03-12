@@ -7,6 +7,7 @@ import Home from "./Pages/Home";
 import Stocks from "./Pages/Stocks";
 import Orders from "./Pages/Orders";
 import Detail from "./Pages/Detail";
+import Add from "./Pages/Add";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
           <Route path="/stocks" component={Stocks} />
           <Route path="/orders" component={Orders} />
           <Route path="/detail" component={Detail} />
+          <Route path="/add" component={Add} />
         </Switch>
       </BrowserRouter>
     </div>

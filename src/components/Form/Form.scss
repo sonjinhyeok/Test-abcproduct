@@ -4,11 +4,11 @@
     justify-content: center;
     margin-top: 5rem;
     
-
     &__input {
         width: 30rem;
         font-size: 1.5rem;
         padding: 4px;
+        outline: 0;
 
         &::placeholder {
             opacity: 0.3;

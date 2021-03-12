@@ -1,0 +1,17 @@
+$media-phone: 768px;
+@media (max-width: $media-phone) {
+    .buttons{
+        display: block;
+    }
+    .buttons__button {
+        margin-bottom: 2rem;
+        &__delete{
+            width: 10rem;
+            height: 2.5rem;
+        }
+        &__close{
+            width: 10rem;
+            height: 2.5rem;
+        }
+    }
+}

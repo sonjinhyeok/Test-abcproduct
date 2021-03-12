@@ -17,9 +17,7 @@ const PageButton = () => {
             <div className="buttons__container__buttons">
                 <button className="buttons__container__button">次</button>
             </div>
-            <div className="buttons__container__buttons">
-                <AddButton />
-            </div>
+            <div className="buttons__container__buttons"><AddButton /></div>
         </div>
     );
 }

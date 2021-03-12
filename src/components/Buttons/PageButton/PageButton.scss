@@ -2,7 +2,13 @@
     display: flex;
     &__buttons {
         margin: 2rem 0 0 1rem ;
+
+        &__add {
+            position: absolute;
+            right: 10%;
+        }
     }
+
     &__button {
         width: 3rem;
         height: 3rem;

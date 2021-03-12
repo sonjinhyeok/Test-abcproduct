@@ -3,7 +3,7 @@ import CloseButton from '../CloseButton/CloseButton';
 import DeleteButton from '../DeleteButton/DeleteButton';
 import './DeleteAndCloseButton.scss';
 
-const DeleteAndCLoseButton = () => {
+const DeleteAndCloseButton = () => {
     return(
         <div className="buttons">
             <div className="buttons__button">
@@ -15,4 +15,4 @@ const DeleteAndCLoseButton = () => {
         </div>
     );
 }
-export default DeleteAndCLoseButton;
+export default DeleteAndCloseButton;

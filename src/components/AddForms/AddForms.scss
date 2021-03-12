@@ -1,0 +1,26 @@
+.add__form{
+  width: 80%;
+  margin-top: 2rem;
+}
+.add {
+  display: flex;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  align-items: center;
+  
+  &__label {
+    width: 15rem;
+    text-align: center;
+  }
+
+  &__input {
+    width: 30rem;
+    height: 100%;
+    font-size: 2rem;
+    outline: 0;
+  }
+}
+
+.add__button {
+  
+}
