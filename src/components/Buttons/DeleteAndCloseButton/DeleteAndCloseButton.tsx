@@ -1,14 +1,16 @@
 import React from 'react';
+import CloseButton from '../CloseButton/CloseButton';
+import DeleteButton from '../DeleteButton/DeleteButton';
 import './DeleteAndCloseButton.scss';
 
 const DeleteAndCLoseButton = () => {
     return(
         <div className="buttons">
             <div className="buttons__button">
-                <button className="buttons__button__delete">削除</button>
+                <DeleteButton />
             </div>
             <div className="buttons__button">
-                <button className="buttons__button__close">閉じる</button>
+                <CloseButton />
             </div>
         </div>
     );

@@ -1,14 +1,14 @@
-/* CloseButton */
-.close__button {
+.buttons__close{
     width: 8rem;
     height: 50px;
-    border: 1px solid sandybrown;
     border-radius: 4px;
-    background-color: sandybrown;
+    text-align: center;
     color: white;
+    background-color: darkorange;
+    border: 1px solid darkorange;
     
     &:hover{
-        color: sandybrown;
+        color: darkorange;
         background-color: white;
     }
 }

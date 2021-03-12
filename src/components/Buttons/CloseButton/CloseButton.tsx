@@ -1,9 +1,11 @@
 import React from 'react';
 import './CloseButton.scss'
-
+import { Link } from 'react-router-dom';
 const CloseButton = () => {
     return(
-        <button className="close__button">閉じる</button>
+        <Link to="/stocks">
+            <button className="buttons__close">戻る</button>
+        </Link>
     );
 }
 
