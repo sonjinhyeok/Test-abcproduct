@@ -1,11 +1,21 @@
 import React from 'react';
+import { useHistory } from 'react-router';
 import './CloseButton.scss'
-import { Link } from 'react-router-dom';
+
 const CloseButton = () => {
+    const history = useHistory();
+
+    const handleClick = () => {
+        history.push("/stocks")
+    }
+    
     return(
-        <Link to="/stocks">
-            <button className="buttons__close">戻る</button>
-        </Link>
+        <button 
+        className="buttons__close"
+        onClick={handleClick}
+        >
+            戻る
+        </button>
     );
 }
 

@@ -1,8 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router';
 import './PageButton.scss'
 
 const PageButton = () => {
+    const history = useHistory();
+
+    const handleClick =() => {
+        history.push("/add")
+    }
     return(
         <div className="buttons__container">
             <div className="buttons__container__buttons">
@@ -18,9 +23,13 @@ const PageButton = () => {
                 <button className="buttons__container__button">次</button>
             </div>
             <div className="buttons__container__buttons">
-                <Link to='/add'>
-                    <button className="buttons__container__add">登録</button>
-                </Link>
+        
+            <button 
+                className="buttons__container__add"
+                onClick={handleClick}
+            >
+                登録
+            </button>
             </div>
         </div>
     );
