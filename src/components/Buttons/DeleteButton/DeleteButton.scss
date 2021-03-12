@@ -1,4 +1,4 @@
-.buttons__delete{
+.delete__button{
     width: 8rem;
     height: 50px;
     text-align: center;
@@ -18,8 +18,8 @@
 
 $media-phone: 768px;
 @media (max-width: $media-phone) {
-    .buttons__delete {
-        width: 10rem;
+    .delete__button {
+        width: 8rem;
         height: 2rem;
     }
 }

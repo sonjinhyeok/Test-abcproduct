@@ -8,10 +8,9 @@ const CloseButton = () => {
     const handleClick = () => {
         history.push("/stocks")
     }
-    
     return(
         <button 
-        className="buttons__close"
+        className="close__button"
         onClick={handleClick}
         >
             戻る

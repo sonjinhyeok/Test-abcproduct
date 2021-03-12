@@ -3,7 +3,7 @@ import './DeleteButton.scss';
 
 const DeleteButton = () => {
     return(
-        <button className="buttons__delete">削除</button>
+        <button className="delete__button">削除</button>
     );
 }
 

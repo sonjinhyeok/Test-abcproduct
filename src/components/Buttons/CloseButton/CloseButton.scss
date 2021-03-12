@@ -1,4 +1,4 @@
-.buttons__close{
+.close__button{
     width: 8rem;
     height: 50px;
     border-radius: 4px;
@@ -18,8 +18,8 @@
 
 $media-phone: 768px;
 @media (max-width: $media-phone) {
-    .buttons__close {
-        width: 10rem;
+    .close__button {
+        width: 8rem;
         height: 2rem;
     }
 }
