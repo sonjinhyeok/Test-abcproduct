@@ -1,8 +1,8 @@
 .buttons__container{
     display: flex;
+    
     &__buttons {
         margin: 2rem 0 0 1rem ;
-
     }
     &__button {
         width: 3rem;
@@ -19,15 +19,15 @@
     &__add {
         width: 8rem;
         height: 3rem;
-        border: 1px solid #263343;
+        border: 1px solid darkorange;
         border-radius: 4px;
-        background-color: #263343;
+        background-color: darkorange;
         color: white;
         position: absolute;
         right: 10%;
         
         &:hover{
-            color: #263343;
+            color: darkorange;
             background-color: white;
         }
     }
@@ -38,7 +38,7 @@ $media-phone: 768px;
     .buttons__container {
         &__buttons {
             margin: 2rem 0 0 0.5rem;
-         }
+        }
         &__button {
             width: 2rem;
             height: 2rem;

@@ -2,12 +2,12 @@
 .add__button {
     width: 8rem;
     height: 3rem;
-    border: 1px solid #263343;
+    border: 1px solid darkorange;
     border-radius: 4px;
-    background-color: #263343;
+    background-color: darkorange;
     color: white;
     &:hover{
-        color: #263343;
+        color: darkorange;
         background-color: white;
     }
 }
