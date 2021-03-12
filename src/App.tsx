@@ -3,11 +3,11 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import 'font-awesome/css/font-awesome.min.css';
 import "./App.scss";
 import SideBar from "./components/SideBar/SideBar";
-import Home from "./Pages/Home";
-import Stocks from "./Pages/Stocks";
-import Orders from "./Pages/Orders";
-import Detail from "./Pages/Detail";
-import Add from "./Pages/Add";
+import Home from "./Pages/Home/Home";
+import Stocks from "./Pages/Stocks/Stocks";
+import Orders from "./Pages/Orders/Orders";
+import Detail from "./Pages/Detail/Detail";
+import Add from "./Pages/Add/Add";
 
 
 export default function App() {
