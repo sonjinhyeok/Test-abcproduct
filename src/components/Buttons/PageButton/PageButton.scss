@@ -12,8 +12,11 @@
         color: #263343;
         
         &:hover {
-            background-color: #263343;
+            background-color: lighten(#263343,10%);
             color: white;
+        }
+        &:active {
+            background-color: darken(#263343,10%);
         }
     }
     &__add {
@@ -26,9 +29,11 @@
         position: absolute;
         right: 10%;
         
-        &:hover{
-            color: darkorange;
-            background-color: white;
+        &:hover {
+            background-color: lighten(darkorange,10%);
+        }
+        &:active {
+            background-color: darken(darkorange,10%);
         }
     }
 }

@@ -6,9 +6,11 @@
     border-radius: 4px;
     background-color: darkorange;
     color: white;
-    &:hover{
-        color: darkorange;
-        background-color: white;
+    &:hover {
+        background: lighten(darkorange,10%); //　明るく
+    }
+    &:active {
+        background: darken(darkorange,10%); // 　暗く
     }
 }
 

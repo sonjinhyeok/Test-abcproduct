@@ -3,13 +3,16 @@
     height: 50px;
     border-radius: 4px;
     text-align: center;
-    color: #233346;
-    background-color: white;
+    color: white;
+    background-color: #233346;
     border: 1px solid #233346;
     
-    &:hover{
-        color: white;
-        background-color: #233346;
+    &:hover {
+        background: lighten(#233346,10%);
+        color: white; 
+    }
+    &:active {
+        background: darken(#233346,10%); 
     }
 }
 

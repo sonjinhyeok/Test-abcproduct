@@ -1,6 +1,7 @@
 import React from 'react';
 import AddForms from '../components/AddForms/AddForms';
-import AddAndCloseButton from '../components/Buttons/AddAndCloseButton/AddAndCloseButton';
+import AddButton from '../components/Buttons/AddButton/AddButton';
+import CloseButton from '../components/Buttons/CloseButton/CloseButton';
 import Header from '../components/Header/Header';
 
 const Add = () => {
@@ -8,7 +9,8 @@ const Add = () => {
         <div className="container">
             <Header title="在庫登録"/>
             <AddForms />
-            <AddAndCloseButton />
+            <AddButton />
+            <CloseButton />
         </div>
     );
 }

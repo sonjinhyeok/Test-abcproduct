@@ -1,4 +1,6 @@
 import React from 'react';
+import AddButton from '../Buttons/AddButton/AddButton';
+import CloseButton from '../Buttons/CloseButton/CloseButton';
 import './AddForms.scss';
 
 const AddForms = () => {
