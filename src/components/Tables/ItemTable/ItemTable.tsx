@@ -3,6 +3,11 @@ import './ItemTable.scss';
 import { Link } from 'react-router-dom';
 
 const ItemTable = () => {
+
+    const tdClick = () => {
+        console.log();
+        
+    }
     return(
         <table className="table">
             <tr>
@@ -13,21 +18,11 @@ const ItemTable = () => {
                 <th>倉庫名</th>
             </tr>
             <tr>
-                <td>
-                    <Link to="/detail" className="link__text">1</Link>
-                </td>
-                <td>
-                    <Link to="/detail" className="link__text">abc</Link>
-                </td>
-                <td>
-                    <Link to="/detail" className="link__text">3</Link>
-                </td>
-                <td>
-                    <Link to="/detail" className="link__text">100</Link>
-                </td>
-                <td>
-                    <Link to="/detail" className="link__text">東京倉庫</Link>
-                </td>
+                <Link to="/detail"><td>1</td></Link>
+                <td>商品名</td>
+                <td>商品数</td>
+                <td>単価</td>
+                <td>倉庫名</td>
             </tr>
             <tr>
                 <td>２</td>
