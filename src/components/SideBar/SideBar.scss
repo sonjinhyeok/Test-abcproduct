@@ -12,35 +12,22 @@
     &__togglebtn {
         display: none;
     }
-    &__menu {
-        padding: 15px 30px;
-        margin-top: 10px;
-        text-align: center;
-        font-size: 1.5rem;
-        color: white;
-    }
-    li:hover {
-        background-color: darkorange;
-    }
-    &__text {
-        margin-left: 0.5rem;
-    }
 }
 
 // SideBar - レスポンシブーデザイン  
 $media-phone: 768px;
-@media (max-width: $media-phone) {
-    .sidebar {
-        width: 100%;
-        height: auto;
+    @media (max-width: $media-phone) {
+        .sidebar {
+            width: 100%;
+            height: auto;
 
-        &__togglebtn {
-            display: block;
-            position: absolute;
-            cursor: pointer;
-            color: white;
-            font-size: 2rem;
-            left: 24px;
+            &__togglebtn {
+                display: block;
+                position: absolute;
+                cursor: pointer;
+                color: white;
+                font-size: 2rem;
+                left: 24px;
+            }
         }
     }
-}

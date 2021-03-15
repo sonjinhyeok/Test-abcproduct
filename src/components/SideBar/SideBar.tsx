@@ -1,38 +1,70 @@
 import React, { useState } from "react";
-import SideBarMenu from './SideBarMenu';
+import { NavLink } from 'react-router-dom';
+import styled　from 'styled-components';
 import './SideBar.scss';
 
-const menus = [
-    { name: "ホーム", path: "/" , icon: "sidemenu-icon fa fa-home" },
-    { name: "在庫管理", path: "/stocks", icon: "sidemenu-icon fa fa-list" },
-    { name: "受注管理", path: "/orders", icon: "sidemenu-icon fa fa-clipboard"},
-];
+type MenuProps = {
+    showMenu?: boolean
+}
+
+type Menu = {
+    id : number
+    name : string
+    path : string
+    iconClassName: string
+}
+
+const SideBarMenu = styled.li<MenuProps>`
+    padding: 15px 30px;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 1.5rem;
+    color: white;
+
+    :hover {
+        background-color: darkorange;
+        transform: scale(1.01);
+    }
+    span {
+        margin-left: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+        display: ${({ showMenu }) => showMenu ? 'block' : 'none' }
+    }
+`;
 
 const SideBar = () => {
-    const [showLi, setShowLi] = useState(true);
-    
-    const toggleNav = () => {
-        setShowLi(!showLi);
-    };
+    const menus: Menu[] = [
+        {id: 1, name: 'ホーム' , path: '/', iconClassName: 'fa fa-home'},
+        {id: 2, name: '在庫管理' , path: '/stocks', iconClassName: 'fa fa-list'},
+        {id: 3, name: '受注管理' , path: '/orders', iconClassName: 'fa fa-clipboard'}
+    ];
+
+    const [showMenu, setShowMenu] = useState(false);
+
     return(
         <ul className="sidebar">
+            <NavLink to="/">
             <h1 className="sidebar__header">
                 <i
                 className="sidebar__togglebtn fa fa-bars"
-                onClick={toggleNav}
-                >
+                onClick={()=> setShowMenu(!showMenu)}>
                 </i>
                 ABCProduct
             </h1>
-                {showLi 
-                    ? menus.map((menu, index) => {
-                    return (
-                        <SideBarMenu menu={menu} key={index}/>
-                    )})
-                    : ''
-                } 
+            </NavLink>
+            { menus.map(( menu ) => (
+                <NavLink to={menu.path} >
+                    <SideBarMenu showMenu={ showMenu }>
+                        <i className={menu.iconClassName}></i>
+                        <span>{menu.name}</span>
+                    </SideBarMenu>
+                </NavLink>
+            ))}
         </ul>
     );
 }
+
 
 export default SideBar;
