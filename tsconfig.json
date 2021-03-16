@@ -1,26 +1,29 @@
 {
+  //コンパイルする際のオプション
   "compilerOptions": {
-    "target": "es5",
-    "lib": [
+    "target": "es5",                                    // TSはECMAScript 5に変換
+    "lib": [                                            // コンパイルする際に使用する組み込みライブラリを指定する
       "dom",
       "dom.iterable",
       "esnext"
     ],
-    "allowJs": true,
+    "allowJs": true,                                    // JSファイルを許可する
+    "esModuleInterop": true,                            // import文を使って読み込めるようにする
+    "strict": true,                                     // TSの基本的なチェックを全てtrueにする
+    "forceConsistentCasingInFileNames": true,           // ファイル名の大小を区別する
+    "module": "esnext",                                 // コンパイル後のJSオプシオン
+    "jsx": "react-jsx",                                 // JSXの書式を有効に設定
     "skipLibCheck": true,
-    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": true,                  // sswitch文のcase内でbreakが無い場合、その下のcaseの処理も実行される仕様
+    "moduleResolution": "node",                          // tscのモジュール解決の方法を指定
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx",
-    "strictPropertyInitialization": false,
+    "isolatedModules": true,                             // 全てのファイルを単一のモジュールとしてコンパイルする
+    "noEmit": true,                                      // コンパイル結果を出力しなくなる : true
+    
   },
+
+  //コンパイルする対象ファイルを記述する。
   "include": [
     "src"
   ]
