@@ -30,17 +30,17 @@
 $media-phone: 768px;
 @media (max-width: $media-phone) {
   .add {
-    font-size: 1.5rem;
     margin-bottom: 0.25rem;
     &__label {
       width: 10rem;
       padding: 0.25rem;
+      font-size: 1.25rem;
       text-align: center;
     }
     &__input {
       width: 25rem;
       padding: 0.25rem;
-      font-size: 1.5rem;
+      font-size: 1.25rem;
     }
   }
 }
