@@ -5,13 +5,14 @@
     border-collapse: collapse;
     font-size: 1rem;
     color: black;
+    
     th,td{
         padding: 1rem 2rem;
     }
-    
+
     .link__text {
         color: black;
-        padding: 0.5rem;
+        padding: 0.75rem 0.5rem;
     }
 
     tr:nth-child(odd) {

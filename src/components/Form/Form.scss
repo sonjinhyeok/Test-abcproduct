@@ -7,7 +7,7 @@
     &__input {
         width: 30rem;
         font-size: 1.5rem;
-        padding: 4px;
+        padding: 0.5rem;
         outline: 0;
 
         &::placeholder {
@@ -33,3 +33,17 @@
         }
     }  
 }
+
+$media-phone: 768px;
+@media (max-width: $media-phone) {
+    .search__form {
+        &__input {
+            font-size: 1rem;
+
+            &::placeholder {
+                font-size: 0.75rem;
+            }
+        }
+    }
+}
+

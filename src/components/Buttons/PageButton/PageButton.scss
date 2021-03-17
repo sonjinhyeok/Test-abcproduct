@@ -20,7 +20,7 @@
 
     &__add {
         position: absolute;
-        right: 10%;
+        right: 8%;
         margin-top: 1.5rem;
         width: 8rem;
         height: 3rem;
@@ -48,6 +48,7 @@ $media-phone: 768px;
         &__add{
             width: 5rem;
             height: 2.5rem;
+            right: 10%;
         }
     }
 }
