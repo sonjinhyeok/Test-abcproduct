@@ -21,9 +21,9 @@ describe("StockApi", () => {
     instance = new api.StockApi(config)
   });
 
-  test("stockDeleteIdGet", () => {
+  test("stockDeleteIdDelete", () => {
     const id: number = 789
-    return expect(instance.stockDeleteIdGet(id, {})).resolves.toBe(null)
+    return expect(instance.stockDeleteIdDelete(id, {})).resolves.toBe(null)
   })
   test("stockDetailIdGet", () => {
     const id: number = 789

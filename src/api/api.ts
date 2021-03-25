@@ -54,7 +54,7 @@ export interface FetchArgs {
  * @class BaseAPI
  */
 export class BaseAPI {
-    protected configuration?: Configuration;
+    protected configuration!: Configuration;
 
     constructor(configuration?: Configuration, protected basePath: string = BASE_PATH, protected fetch: FetchAPI = portableFetch) {
         if (configuration) {
@@ -152,15 +152,15 @@ export const StockApiFetchParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        stockDeleteIdGet(id: number, options: any = {}): FetchArgs {
+        stockDeleteIdDelete(id: number, options: any = {}): FetchArgs {
             // verify required parameter 'id' is not null or undefined
             if (id === null || id === undefined) {
-                throw new RequiredError('id','Required parameter id was null or undefined when calling stockDeleteIdGet.');
+                throw new RequiredError('id','Required parameter id was null or undefined when calling stockDeleteIdDelete.');
             }
             const localVarPath = `/stock/delete/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            const localVarUrlObj = url.parse(localVarPath, true) as any ;
-            const localVarRequestOptions = Object.assign({ method: 'GET' }, options);
+            const localVarUrlObj = url.parse(localVarPath, true) as any;
+            const localVarRequestOptions = Object.assign({ method: 'DELETE' }, options);
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
@@ -364,8 +364,8 @@ export const StockApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        stockDeleteIdGet(id: number, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<InlineResponse2001> {
-            const localVarFetchArgs = StockApiFetchParamCreator(configuration).stockDeleteIdGet(id, options);
+        stockDeleteIdDelete(id: number, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<InlineResponse2001> {
+            const localVarFetchArgs = StockApiFetchParamCreator(configuration).stockDeleteIdDelete(id, options);
             return (fetch: FetchAPI = portableFetch, basePath: string = BASE_PATH) => {
                 return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                     if (response.status >= 200 && response.status < 300) {
@@ -506,8 +506,8 @@ export const StockApiFactory = function (configuration?: Configuration, fetch?: 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        stockDeleteIdGet(id: number, options?: any) {
-            return StockApiFp(configuration).stockDeleteIdGet(id, options)(fetch, basePath);
+        stockDeleteIdDelete(id: number, options?: any) {
+            return StockApiFp(configuration).stockDeleteIdDelete(id, options)(fetch, basePath);
         },
         /**
          * 在庫詳細の取得
@@ -587,8 +587,8 @@ export class StockApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof StockApi
      */
-    public stockDeleteIdGet(id: number, options?: any) {
-        return StockApiFp(this.configuration).stockDeleteIdGet(id, options)(this.fetch, this.basePath);
+    public stockDeleteIdDelete(id: number, options?: any) {
+        return StockApiFp(this.configuration).stockDeleteIdDelete(id, options)(this.fetch, this.basePath);
     }
 
     /**

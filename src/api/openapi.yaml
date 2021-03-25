@@ -184,7 +184,7 @@ paths:
         default:
           description: 予期しないエラー
   /stock/delete/{id}:
-    get:
+    delete:
       tags:
       - stock
       summary: 在庫詳細
