@@ -26,6 +26,7 @@ paths:
         schema:
           type: integer
           format: int64
+          example: 1
       responses:
         "200":
           description: Success
@@ -88,6 +89,7 @@ paths:
         schema:
           type: integer
           format: int64
+          example: 10
       responses:
         "200":
           description: Success
@@ -150,6 +152,7 @@ paths:
         schema:
           type: integer
           format: int64
+          example: 1000
       responses:
         "200":
           description: Success
@@ -212,6 +215,7 @@ paths:
         schema:
           type: integer
           format: int64
+          example: 1
       responses:
         "200":
           description: Success
@@ -234,31 +238,36 @@ components:
         id:
           type: integer
           format: int64
+          example: 1
         itemId:
           type: integer
           format: int64
+          example: 1
         itemName:
           type: string
           format: byte
         warehouseId:
           type: integer
           format: int64
+          example: 1
         warehouseName:
           type: string
           format: byte
         counts:
           type: integer
           format: int64
+          example: 10
         price:
           type: integer
           format: int64
+          example: 1000
       example:
-        itemId: 6
+        itemId: 1
         itemName: ""
         warehouseId: 1
-        counts: 5
-        price: 5
-        id: 0
+        counts: 10
+        price: 1000
+        id: 1
         warehouseName: ""
     inline_response_200_1:
       type: object
@@ -266,5 +275,6 @@ components:
         deleteCount:
           type: integer
           format: int64
+          example: 1
       example:
-        deleteCount: 0
+        deleteCount: 1

@@ -12,7 +12,7 @@ exports.stockDeleteIdDELETE = function(id) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
-  "deleteCount" : 0
+  "deleteCount" : 1
 };
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
@@ -34,12 +34,12 @@ exports.stockDetailIdGET = function(id) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
-  "itemId" : 6,
+  "itemId" : 1,
   "itemName" : "",
   "warehouseId" : 1,
-  "counts" : 5,
-  "price" : 5,
-  "id" : 0,
+  "counts" : 10,
+  "price" : 1000,
+  "id" : 1,
   "warehouseName" : ""
 };
     if (Object.keys(examples).length > 0) {
@@ -62,12 +62,12 @@ exports.stockSearchCountsCountsGET = function(counts) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
-  "itemId" : 6,
+  "itemId" : 1,
   "itemName" : "",
   "warehouseId" : 1,
-  "counts" : 5,
-  "price" : 5,
-  "id" : 0,
+  "counts" : 10,
+  "price" : 1000,
+  "id" : 1,
   "warehouseName" : ""
 };
     if (Object.keys(examples).length > 0) {
@@ -90,12 +90,12 @@ exports.stockSearchIdIdGET = function(id) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
-  "itemId" : 6,
+  "itemId" : 1,
   "itemName" : "",
   "warehouseId" : 1,
-  "counts" : 5,
-  "price" : 5,
-  "id" : 0,
+  "counts" : 10,
+  "price" : 1000,
+  "id" : 1,
   "warehouseName" : ""
 };
     if (Object.keys(examples).length > 0) {
@@ -118,12 +118,12 @@ exports.stockSearchItemNameItemNameGET = function(itemName) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
-  "itemId" : 6,
+  "itemId" : 1,
   "itemName" : "",
   "warehouseId" : 1,
-  "counts" : 5,
-  "price" : 5,
-  "id" : 0,
+  "counts" : 10,
+  "price" : 1000,
+  "id" : 1,
   "warehouseName" : ""
 };
     if (Object.keys(examples).length > 0) {
@@ -146,12 +146,12 @@ exports.stockSearchPricePriceGET = function(price) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
-  "itemId" : 6,
+  "itemId" : 1,
   "itemName" : "",
   "warehouseId" : 1,
-  "counts" : 5,
-  "price" : 5,
-  "id" : 0,
+  "counts" : 10,
+  "price" : 1000,
+  "id" : 1,
   "warehouseName" : ""
 };
     if (Object.keys(examples).length > 0) {
@@ -174,12 +174,12 @@ exports.stockSearchWarehouseNameWarehouseNameGET = function(warehouseName) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
-  "itemId" : 6,
+  "itemId" : 1,
   "itemName" : "",
   "warehouseId" : 1,
-  "counts" : 5,
-  "price" : 5,
-  "id" : 0,
+  "counts" : 10,
+  "price" : 1000,
+  "id" : 1,
   "warehouseName" : ""
 };
     if (Object.keys(examples).length > 0) {
