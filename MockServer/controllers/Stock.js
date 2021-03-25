@@ -3,8 +3,8 @@
 var utils = require('../utils/writer.js');
 var Stock = require('../service/StockService');
 
-module.exports.stockDeleteIdGET = function stockDeleteIdGET (req, res, next, id) {
-  Stock.stockDeleteIdGET(id)
+module.exports.stockDeleteIdDELETE = function stockDeleteIdDELETE (req, res, next, id) {
+  Stock.stockDeleteIdDELETE(id)
     .then(function (response) {
       utils.writeJson(res, response);
     })

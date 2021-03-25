@@ -196,12 +196,12 @@ paths:
           description: 予期しないエラー
       x-swagger-router-controller: Stock
   /stock/delete/{id}:
-    get:
+    delete:
       tags:
       - stock
       summary: 在庫詳細
       description: 在庫詳細の取得
-      operationId: stockDeleteIdGET
+      operationId: stockDeleteIdDELETE
       parameters:
       - name: id
         in: path

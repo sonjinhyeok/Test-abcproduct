@@ -8,7 +8,7 @@
  * id Long 在庫ID
  * returns inline_response_200_1
  **/
-exports.stockDeleteIdGET = function(id) {
+exports.stockDeleteIdDELETE = function(id) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
