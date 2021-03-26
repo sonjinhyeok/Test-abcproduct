@@ -1,0 +1,306 @@
+openapi: 3.0.0
+info:
+  title: ABCProduct
+  description: ABCProduct 在庫の検索API
+  version: 0.1.9
+
+tags:
+  - name: stock
+    description: 在庫の検索
+
+paths:
+  /stock/search/id/{id}:
+    get:
+      tags:
+        - stock
+      summary: 在庫ID検索
+      description: 在庫IDの検索結果
+      parameters:
+        - name: id
+          in: path
+          description: 在庫ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+            example: 1
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Items'
+        "400":
+          description: 在庫IDは無効です
+        "404":
+          description: 在庫IDが見つかりませんでした
+        default:
+          description: 予期しないエラー
+  /stock/search/itemName/{itemName}:
+    get:
+      tags:
+        - stock
+      summary: 商品名の検索
+      description: 商品名の検索結果
+      parameters:
+        - name: itemName
+          in: path
+          description: 商品名
+          required: true
+          schema:
+            type: string
+            format: byte
+            example: "AAA自動車"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Items'
+        "400":
+          description: 商品名は無効です
+        "404":
+          description: 商品名が見つかりませんでした
+        default:
+          description: 予期しないエラー
+  /stock/search/counts/{counts}:
+    get:
+      tags:
+        - stock
+      summary: 商品数の検索
+      description: 商品数の検索結果
+      parameters:
+        - name: counts
+          in: path
+          description: 商品数
+          required: true
+          schema:
+            type: integer
+            format: int64
+            example: 10
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Items'
+        "400":
+          description: 商品数は無効です
+        "404":
+          description: 商品数が見つかりませんでした
+        default:
+          description: 予期しないエラー
+  /stock/search/price/{price}:
+    get:
+      tags:
+        - stock
+      summary: 単価の検索
+      description: 単価の検索結果
+      parameters:
+        - name: price
+          in: path
+          description: 単価
+          required: true
+          schema:
+            type: integer
+            format: int64
+            example: 1000
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Items'
+        "400":
+          description: 単価は無効です
+        "404":
+          description: 単価が見つかりませんでした
+        default:
+          description: 予期しないエラー
+  /stock/search/warehouseName/{warehouseName}:
+    get:
+      tags:
+        - stock
+      summary: 倉庫名の検索
+      description: 倉庫名の検索結果
+      parameters:
+        - name: warehouseName
+          in: path
+          description: 倉庫名
+          required: true
+          schema:
+            type: string
+            format: byte
+            example: "東京倉庫"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Items'
+        "400":
+          description: 倉庫名は無効です
+        "404":
+          description: 倉庫名が見つかりませんでした
+        default:
+          description: 予期しないエラー
+  /stock/detail/{id}:
+    get:
+      tags:
+        - stock
+      summary: 在庫詳細
+      description: 在庫詳細の取得
+      parameters:
+        - name: id
+          in: path
+          description: 在庫ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Items'
+        "400":
+          description: 在庫IDは無効です
+        "404":
+          description: 在庫IDが見つかりませんでした
+        default:
+          description: 予期しないエラー
+  /stock/delete/{id}:
+    delete:
+      tags:
+        - stock
+      summary: 在庫詳細
+      description: 在庫詳細の取得
+      parameters:
+        - name: id
+          in: path
+          description: 在庫ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+            example: 1
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  deleteCount:
+                    type: integer
+                    format: int64
+                    example: 1
+        "400":
+          description: 在庫IDは無効です
+        "404":
+          description: 在庫IDが見つかりませんでした
+        default:
+          description: 予期しないエラー
+  /stock/add/{id}{itemName}{counts}{price}{warehouseName}:
+    post:
+      tags:
+        - stock
+      summary: 在庫登録
+      description: 在庫登録
+      parameters:
+        - name: id
+          in: path
+          description: 在庫登録
+          required: true
+          schema:
+            type: integer
+            format: int64
+            example: 1
+        - name: itemName
+          in: path
+          description: itemName
+          required: true
+          schema:
+            type: string
+            format: btye
+            example: "AAA自動車"
+        - name: counts
+          in: path
+          description: counts
+          required: true
+          schema:
+            type: integer
+            format: int64
+            example: 1
+        - name: price
+          in: path
+          description: price
+          required: true
+          schema:
+            type: integer
+            format: int64
+            example: 1
+        - name: warehouseName
+          in: path
+          description: warehouseName
+          required: true
+          schema:
+            type: string  
+            format: btye
+            example: "東京倉庫"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Items'
+        "400":
+          description: 在庫IDは無効です
+        "404":
+          description: 在庫IDが見つかりませんでした
+        default:
+          description: 予期しないエラー
+
+# definitions
+components:
+  schemas:
+    Items: # テンプレート名
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1
+        itemId:
+          type: integer
+          format: int64
+          example: 1
+        itemName:
+          type: string
+          format: byte
+          example: "AAA自動車"
+        warehouseId:
+          type: integer
+          format: int64
+          example: 1
+        warehouseName:
+          type: string
+          format: byte
+          example: "東京倉庫"
+        counts:
+          type: integer
+          format: int64
+          example: 1
+        price:
+          type: integer
+          format: int64
+          example: 1
