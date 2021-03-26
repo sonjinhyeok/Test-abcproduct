@@ -30,6 +30,40 @@ const ItemTable = () => {
                     <Link to="/detail" className="link__text">{data.items[0].warehouseName}</Link>
                 </td>
             </tr>
+            <tr>
+                <td>
+                    <Link to="/detail" className="link__text">{data.items[1].id}</Link>
+                </td>
+                <td>
+                    <Link to="/detail" className="link__text">{data.items[1].itemName}</Link>
+                </td>
+                <td>
+                    <Link to="/detail" className="link__text">{data.items[1].counts}</Link>
+                </td>
+                <td>
+                    <Link to="/detail" className="link__text">{data.items[1].price}</Link>
+                </td>
+                <td>
+                    <Link to="/detail" className="link__text">{data.items[1].warehouseName}</Link>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <Link to="/detail" className="link__text">{data.items[2].id}</Link>
+                </td>
+                <td>
+                    <Link to="/detail" className="link__text">{data.items[2].itemName}</Link>
+                </td>
+                <td>
+                    <Link to="/detail" className="link__text">{data.items[2].counts}</Link>
+                </td>
+                <td>
+                    <Link to="/detail" className="link__text">{data.items[2].price}</Link>
+                </td>
+                <td>
+                    <Link to="/detail" className="link__text">{data.items[2].warehouseName}</Link>
+                </td>
+            </tr>
         </table>
     );
 }
