@@ -1,9 +1,9 @@
 import React from 'react';
 import './ItemTable.scss';
 import { Link } from 'react-router-dom';
+import data from '../../../db/db.json';
 
 const ItemTable = () => {
-
     return(
         <table className="table">
             <tr>
@@ -14,11 +14,21 @@ const ItemTable = () => {
                 <th>倉庫名</th>
             </tr>
             <tr>
-                <td><Link to="/detail" className="link__text">1</Link></td>
-                <td><Link to="/detail" className="link__text">ABC</Link></td>
-                <td><Link to="/detail" className="link__text">10</Link></td>
-                <td><Link to="/detail" className="link__text">1000</Link></td>
-                <td><Link to="/detail" className="link__text">東京倉庫</Link></td>
+                <td>
+                    <Link to="/detail" className="link__text">{data.items[0].id}</Link>
+                </td>
+                <td>
+                    <Link to="/detail" className="link__text">{data.items[0].itemName}</Link>
+                </td>
+                <td>
+                    <Link to="/detail" className="link__text">{data.items[0].counts}</Link>
+                </td>
+                <td>
+                    <Link to="/detail" className="link__text">{data.items[0].price}</Link>
+                </td>
+                <td>
+                    <Link to="/detail" className="link__text">{data.items[0].warehouseName}</Link>
+                </td>
             </tr>
         </table>
     );

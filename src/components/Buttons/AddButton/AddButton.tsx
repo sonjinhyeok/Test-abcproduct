@@ -4,7 +4,7 @@ import './AddButton.scss';
 
 const AddButton = () => {
     return(
-        <Link to="/add">
+        <Link to="/stock">
             <button className="add__button">登録</button>
         </Link>
     );

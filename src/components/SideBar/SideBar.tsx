@@ -37,15 +37,14 @@ const SideBarMenu = styled.li<MenuProps>`
 const SideBar = () => {
     const menus: Menu[] = [
         {id: 1, name: 'ホーム' , path: '/', iconClassName: 'fa fa-home'},
-        {id: 2, name: '在庫管理' , path: '/stocks', iconClassName: 'fa fa-list'},
-        {id: 3, name: '受注管理' , path: '/orders', iconClassName: 'fa fa-clipboard'}
+        {id: 2, name: '在庫管理' , path: '/stock', iconClassName: 'fa fa-list'},
+        {id: 3, name: '受注管理' , path: '/order', iconClassName: 'fa fa-clipboard'}
     ];
 
     const [showMenu, setShowMenu] = useState(false);
 
     return(
         <ul className="sidebar">
-            <NavLink to="/">
             <h1 className="sidebar__header">
                 <i
                 className="sidebar__togglebtn fa fa-bars"
@@ -53,7 +52,6 @@ const SideBar = () => {
                 </i>
                 ABCProduct
             </h1>
-            </NavLink>
             { menus.map(( menu ) => (
                 <NavLink to={menu.path} >
                     <SideBarMenu showMenu={ showMenu }>

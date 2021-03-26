@@ -7,7 +7,7 @@ import Header from '../../components/Header/Header';
 const Add = () => {
     return(
         <div className="container">
-            <Header title="在庫登録"/>
+            <Header title="在庫登録" />
             <AddForms title="ID"/>
             <AddForms title="商品名"/>
             <AddForms title="商品数"/>

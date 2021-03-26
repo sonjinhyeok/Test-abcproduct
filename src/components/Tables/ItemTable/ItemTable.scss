@@ -19,3 +19,13 @@
         background-color: #9db0c8;
     }
 }
+
+$media-phone: 768px;
+@media (max-width: $media-phone) {
+    .table {
+        margin-top: 2rem;
+        td, th {
+            padding: 0.5rem 0.75rem;
+        }
+    }
+}

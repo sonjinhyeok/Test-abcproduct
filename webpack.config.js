@@ -36,6 +36,10 @@ module.exports = {
               },
             },
           },
+          { 
+            test: /\.(ya?ml)$/,       // yamlファイルに対する処理
+            loader: "js-yaml-loader"
+          },
         ],
       },
     ],

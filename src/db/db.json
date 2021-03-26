@@ -1,0 +1,25 @@
+{
+  "items":[
+    {
+      "id": 1,
+      "itemName": "AAA自動車",
+      "warehouseName": "東京倉庫",
+      "counts": 100,
+      "price": 1000
+    },
+    {
+      "id": 2,
+      "itemName": "BBB自動車",
+      "warehouseName": "横浜倉庫",
+      "counts": 200,
+      "price": 2000
+    },
+    {
+      "id": 3,
+      "itemName": "CCC自動車",
+      "warehouseName": "吉祥寺倉庫",
+      "counts": 300,
+      "price": 3000
+    }
+  ] 
+}

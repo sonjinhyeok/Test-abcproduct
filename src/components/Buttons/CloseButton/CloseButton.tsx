@@ -6,7 +6,7 @@ const CloseButton = () => {
     const history = useHistory();
 
     const handleClick = () => {
-        history.push("/stocks")
+        history.push("/stock")
     }
     return(
         <button 

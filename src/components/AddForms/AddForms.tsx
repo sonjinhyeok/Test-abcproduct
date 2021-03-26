@@ -1,8 +1,10 @@
 import React from 'react';
 import './AddForms.scss';
+
 type Title = {
   title: string
 }
+
 const AddForms = ({title}:Title) => {
   return(
     <form className="add__form">

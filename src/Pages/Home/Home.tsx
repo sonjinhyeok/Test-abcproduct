@@ -12,8 +12,8 @@ type Icons = {
 const Home = () => {
 
     const icons:Icons[] = [
-        { id: 1, name: "在庫管理", path: "/stocks", icon: "icon-box-icon fa fa-list" },
-        { id: 2, name: "受注管理", path: "/orders", icon: "icon-box-icon fa fa-clipboard"},
+        { id: 1, name: "在庫管理", path: "/stock", icon: "icon-box-icon fa fa-list" },
+        { id: 2, name: "受注管理", path: "/order", icon: "icon-box-icon fa fa-clipboard"},
     ];
 
     return(
