@@ -1,5 +1,5 @@
 import React from 'react';
-import './Form.scss';
+import './SearchForm.scss';
 
 const Form = () => {
     return(

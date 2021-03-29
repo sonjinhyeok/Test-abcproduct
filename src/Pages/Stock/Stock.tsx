@@ -1,6 +1,6 @@
-import Form from '../../components/Form/Form';
+import Form from '../../components/SearchForm/SearchForm';
 import ItemTable from '../../components/Tables/ItemTable/ItemTable';
-import PageButton from '../../components/Buttons/PageButton/PageButton';
+import PageButton from '../../components/PageButton/PageButton';
 
 const Stock = () => { 
     return(

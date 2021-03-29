@@ -3,4 +3,47 @@
   .button{
     margin-left: 1rem;
   }
+  .delete__button{
+    width: 8rem;
+    height: 50px;
+    text-align: center;
+    color: white;
+    background-color: red;
+    border: 1px solid red;
+    border-radius: 4px;
+
+    &:hover {
+        background: lighten(red,10%);
+        color: white; 
+    }
+    &:active {
+        background: darken(red,10%); 
+    }
+    .close__button{
+        width: 8rem;
+        height: 50px;
+        border-radius: 4px;
+        text-align: center;
+        color: white;
+        background-color: #233346;
+        border: 1px solid #233346;
+        
+        &:hover {
+            background: lighten(#233346,10%);
+            color: white; 
+        }
+        &:active {
+            background: darken(#233346,10%); 
+        }
+      }
+}
+
+$media-phone: 768px;
+@media (max-width: $media-phone) {
+    .delete__button,
+    .close__button {
+        width: 8rem;
+        height: 2rem;
+    }
+}
 }

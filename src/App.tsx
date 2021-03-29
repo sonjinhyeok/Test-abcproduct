@@ -28,7 +28,7 @@ export default function App() {
           <Route path="/detail">
             <Detail />
           </Route>
-          <Route exact path="/stock/add">
+          <Route path="/add">
             <Add />
           </Route>
         </Switch>

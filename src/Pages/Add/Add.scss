@@ -1,0 +1,43 @@
+.add__button {
+  width: 8rem;
+  height: 3rem;
+  border: 1px solid darkorange;
+  border-radius: 4px;
+  background-color: darkorange;
+  color: white;
+
+  &:hover {
+      background: lighten(darkorange,10%); //　明るく
+  }
+  &:active {
+      background: darken(darkorange,10%); // 　暗く
+  }
+}
+
+.close__button{
+  width: 8rem;
+  height: 50px;
+  border-radius: 4px;
+  text-align: center;
+  color: white;
+  background-color: #233346;
+  border: 1px solid #233346;
+  
+  &:hover {
+      background: lighten(#233346,10%);
+      color: white; 
+  }
+  &:active {
+      background: darken(#233346,10%); 
+  }
+}
+
+$media-phone: 768px;
+@media (max-width: $media-phone) {
+  .add__button,
+  .close__button {
+      width: 8rem;
+      height: 2rem;
+  }
+}
+

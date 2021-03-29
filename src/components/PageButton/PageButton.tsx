@@ -10,7 +10,7 @@ const PageButton = () => {
             <button className="buttons__button">２</button>
             <button className="buttons__button">次</button>
             <div>
-                <Link to="/stock/add">
+                <Link to="/add">
                     <button className="buttons__add">登録</button>
                 </Link>
             </div>
