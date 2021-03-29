@@ -1,4 +1,4 @@
-.table {
+.item_table {
     margin-top: 3rem;
     width: 80%;
     text-align: center;
@@ -8,6 +8,7 @@
     
     th,td{
         padding: 1rem 2rem;
+        border: 1px solid #dddddd;
     }
 
     .link__text {
@@ -15,14 +16,14 @@
         padding: 0.75rem 0.5rem;
     }
 
-    tr:nth-child(odd) {
+    th {
         background-color: #9db0c8;
     }
 }
 
 $media-phone: 768px;
 @media (max-width: $media-phone) {
-    .table {
+    .item_table {
         margin-top: 2rem;
         td, th {
             padding: 0.5rem 0.75rem;

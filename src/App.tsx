@@ -8,12 +8,13 @@ import Stock from "./Pages/Stock/Stock";
 import Order from "./Pages/Order/Order";
 import Detail from "./Pages/Detail/Detail";
 import Add from "./Pages/Add/Add";
+import EmptyPage from './components/EmptyPage/EmptyPage';
 
 export default function App() {
   
   return (
-    <div className="App">
-      <BrowserRouter>
+    <BrowserRouter>
+      <div className="App">
         <SideBar />
         <Switch>
           <Route exact path="/">
@@ -25,14 +26,17 @@ export default function App() {
           <Route path="/order">
             <Order />
           </Route> 
-          <Route path="/detail">
+          <Route path="/detail/:itemId">
             <Detail />
           </Route>
           <Route path="/add">
             <Add />
           </Route>
+          <Route>
+            <EmptyPage />
+          </Route>
         </Switch>
-      </BrowserRouter>
-    </div>
+      </div>
+    </BrowserRouter>
   );
 }

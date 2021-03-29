@@ -54,7 +54,7 @@ const SideBar = () => {
             </h1>
             { menus.map(( menu ) => (
                 <NavLink to={menu.path} >
-                    <SideBarMenu showMenu={ showMenu }>
+                    <SideBarMenu showMenu={ showMenu } key={menu.id} >
                         <i className={menu.iconClassName}></i>
                         <span>{menu.name}</span>
                     </SideBarMenu>

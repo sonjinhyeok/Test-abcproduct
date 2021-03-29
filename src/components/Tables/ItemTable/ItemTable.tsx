@@ -1,11 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './ItemTable.scss';
 import { Link } from 'react-router-dom';
-import data from '../../../db/db.json';
+
+type Items = {
+    id: number;
+    itemId: number;
+    itemName: string;
+    warehouseId: number;
+    warehouseName: string;
+    itemCount: number;
+    itemPrice: number;
+}
 
 const ItemTable = () => {
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+        fetch("http://localhost:3001/items")
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            setItems(data);
+        })
+    }, []);
+
     return(
-        <table className="table">
+        <table className="item_table">
+            <thead>
             <tr>
                 <th>ID</th>
                 <th>商品名</th>
@@ -13,23 +35,28 @@ const ItemTable = () => {
                 <th>単価</th>
                 <th>倉庫名</th>
             </tr>
-            <tr>
-                <td>
-                    <Link to="/detail" className="link__text">{data.items[0].id}</Link>
-                </td>
-                <td>
-                    <Link to="/detail" className="link__text">{data.items[0].itemName}</Link>
-                </td>
-                <td>
-                    <Link to="/detail" className="link__text">{data.items[0].counts}</Link>
-                </td>
-                <td>
-                    <Link to="/detail" className="link__text">{data.items[0].price}</Link>
-                </td>
-                <td>
-                    <Link to="/detail" className="link__text">{data.items[0].warehouseName}</Link>
-                </td>
-            </tr>
+            </thead>
+            <tbody>
+            {items.map((item: Items) => (
+                <tr key={item.id}>
+                    <td>
+                        <Link to={`/detail/${item.id}`} className="link__text">{item.itemId}</Link>
+                    </td>
+                    <td>
+                        <Link to={`/detail/${item.id}`} className="link__text">{item.itemName}</Link>
+                    </td>
+                    <td>
+                        <Link to={`/detail/${item.id}`} className="link__text">{item.itemCount} 個</Link>
+                    </td>
+                    <td>
+                        <Link to={`/detail/${item.id}`} className="link__text">{item.itemPrice} 円</Link>
+                    </td>
+                    <td>
+                        <Link to={`/detail/${item.id}`} className="link__text">{item.warehouseName}</Link>
+                    </td>
+                </tr>
+            ))}
+            </tbody>
         </table>
     );
 }

@@ -1,16 +1,16 @@
 .buttons{
-  margin-top: 2rem;
-  .button{
-    margin-left: 1rem;
-  }
-  .delete__button{
-    width: 8rem;
-    height: 50px;
-    text-align: center;
-    color: white;
-    background-color: red;
-    border: 1px solid red;
-    border-radius: 4px;
+    margin-top: 2rem;
+    .button{
+        margin-left: 1rem;
+    }
+    .delete__button{
+        width: 8rem;
+        height: 50px;
+        text-align: center;
+        color: white;
+        background-color: red;
+        border: 1px solid red;
+        border-radius: 4px;
 
     &:hover {
         background: lighten(red,10%);

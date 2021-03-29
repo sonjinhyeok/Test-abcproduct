@@ -1,5 +1,5 @@
 /* Detail Table */
-.table {
+.detail_table {
     width: 80%;
     text-align: center;
     border-collapse: collapse;
@@ -8,15 +8,14 @@
         border: 1px solid #dddddd;
         padding: 0.75rem 1rem;
     }
-    
-    tr:nth-child(odd) {
+    th {
         background-color: #9db0c8;
     }
 }
 
 $media-phone: 768px;
 @media (max-width: $media-phone) {
-    .table {
+    .detail_table {
         margin-top: 2rem;
         td, th {
             padding: 0.5rem 0.75rem;
