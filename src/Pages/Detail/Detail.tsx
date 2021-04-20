@@ -6,21 +6,21 @@ import './Detail.scss';
 const Detail = () => {
     const history = useHistory();
 
-    const { productId } : any = useParams();
+    const { product_id } : any = useParams();
     
     // const stockList = data.stocks.filter(stock => stock.productId === Number(productId));
     
     const [stocks, setStocks] = useState<any[]>([]);
 
     useEffect(() => {   
-        fetch(`/detail?productId=${productId}`)
+        fetch(`/detail/${product_id}`)
         .then(response => response.json())
         .then(stocks => {
             setStocks(stocks);
-            console.log(stocks);
+            
         });
 
-    }, [productId]);
+    }, [product_id]);
 
     const handleClick = () => {
         history.push("/stock");
@@ -40,8 +40,8 @@ const Detail = () => {
         <div className="container">
             <Header title="在庫詳細"/>
                 {stocks.map( stock => (
-                <>
-                    <div className="detail" key={stock.productId}>
+                <div>
+                    <div className="detail">
                         <div className="detail__title">ID</div>
                         <div className="detail__content">{stock.productId}</div>
                     </div>
@@ -61,7 +61,7 @@ const Detail = () => {
                         <div className="detail__title">倉庫名</div>
                         <div className="detail__content">{stock.warehouses[0].warehouseName}</div>
                     </div>
-                </>
+                </div>
             ))}
             <div className="buttons">
                 <div className="button">
