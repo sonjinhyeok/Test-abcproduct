@@ -35,7 +35,7 @@
         &:active {
             background: darken(#233346,10%); 
         }
-      }
+    }
 }
 
 $media-phone: 768px;
@@ -45,5 +45,49 @@ $media-phone: 768px;
         width: 8rem;
         height: 2rem;
     }
+    }
 }
+
+/* Detail */
+.detail {
+    width: 85%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 0.25rem;
+    font-size: 1.5rem;
+    
+    &__title{
+        width: 15rem;
+        height: 3rem;
+        padding: 0.5rem;
+        background-color: #233346;
+        border-radius: 0.25rem;
+        color: white;
+    } 
+    &__content {
+        width: 40rem;
+        height: 3rem;
+        padding: 0.5rem;
+        background: whitesmoke;
+        border-radius: 0.25rem;
+    }
+}
+
+$media-phone: 768px;
+@media (max-width: $media-phone) {
+    .detail {
+        margin-top: 0.25rem;
+        font-size: 1rem;
+        &__title {
+            width: 7.5rem;
+            height: 2rem;
+            padding: 0.25rem;
+        }
+        &__content {
+            width: 20rem;
+            height: 2rem;
+            padding: 0.25rem;
+        }
+    }
 }

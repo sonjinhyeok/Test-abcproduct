@@ -1,5 +1,5 @@
 {
-  "items" : [
+  "items": [
     {
       "id": 1,
       "itemId": 1,
@@ -27,5 +27,5 @@
       "itemCount": 300,
       "itemPrice": 300
     }
-  ] 
+  ]
 }

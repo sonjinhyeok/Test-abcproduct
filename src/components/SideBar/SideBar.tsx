@@ -53,8 +53,8 @@ const SideBar = () => {
                 ABCProduct
             </h1>
             { menus.map(( menu ) => (
-                <NavLink to={menu.path} >
-                    <SideBarMenu showMenu={ showMenu } key={menu.id} >
+                <NavLink to={menu.path} key={menu.id}>
+                    <SideBarMenu showMenu={ showMenu }  >
                         <i className={menu.iconClassName}></i>
                         <span>{menu.name}</span>
                     </SideBarMenu>

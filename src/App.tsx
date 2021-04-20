@@ -8,10 +8,9 @@ import Stock from "./Pages/Stock/Stock";
 import Order from "./Pages/Order/Order";
 import Detail from "./Pages/Detail/Detail";
 import Add from "./Pages/Add/Add";
-import EmptyPage from './components/EmptyPage/EmptyPage';
 
 export default function App() {
-  
+
   return (
     <BrowserRouter>
       <div className="App">
@@ -26,14 +25,11 @@ export default function App() {
           <Route path="/order">
             <Order />
           </Route> 
-          <Route path="/detail/:itemId">
+          <Route path='/detail/:productId'>
             <Detail />
           </Route>
           <Route path="/add">
             <Add />
-          </Route>
-          <Route>
-            <EmptyPage />
           </Route>
         </Switch>
       </div>
