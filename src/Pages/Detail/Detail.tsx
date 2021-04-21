@@ -6,35 +6,32 @@ import './Detail.scss';
 const Detail = () => {
     const history = useHistory();
 
-    const { product_id } : any = useParams();
+    const { productId } : any = useParams();
     
     // const stockList = data.stocks.filter(stock => stock.productId === Number(productId));
     
     const [stocks, setStocks] = useState<any[]>([]);
 
     useEffect(() => {   
-        fetch(`/detail/${product_id}`)
+        fetch(`http://localhost:8080/stock/detail?productId=${productId}`)
         .then(response => response.json())
-        .then(stocks => {
-            setStocks(stocks);
-            
-        });
+        .then(stocks => setStocks(stocks));
 
-    }, [product_id]);
+    }, [productId]);
 
     const handleClick = () => {
         history.push("/stock");
     }
 
-    // // 削除
-    // const handleDelete = () => {
-    //     if(window.confirm("削除しますか？")){
-    //         fetch(`/stock?productId=${productId}`, {
-    //             method: "DELETE",
-    //         })
-    //     }
-    //     history.push("/stock");
-    // }
+    // 削除
+    const handleDelete = () => {
+        if(window.confirm("削除しますか？")){
+            fetch(`http://localhost:8080/stock/detail?productId=${productId}`, {
+                method: "DELETE",
+            })
+        }
+        history.push("/stock");
+    }
 
     return(
         <div className="container">
@@ -65,7 +62,7 @@ const Detail = () => {
             ))}
             <div className="buttons">
                 <div className="button">
-                    <button className="delete__button">削除</button>
+                    <button className="delete__button" onClick={handleDelete}>削除</button>
                 </div>
                 <div className="button">
                     <button className="close__button" onClick={handleClick}>戻る</button>

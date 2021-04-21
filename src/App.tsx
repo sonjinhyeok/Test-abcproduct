@@ -17,7 +17,7 @@ export default function App() {
         <SideBar />
         <Switch>
           <Route path="/stock" component={Stock} />
-          <Route path="/detail/:product_id" component={Detail} />
+          <Route path="/stock/detail/:productId" component={Detail} />
           <Route path="/order" component={Order} />
           <Route path="/add" component={Add} />
           <Route exact path="/" component={Home} />
