@@ -6,7 +6,7 @@ import SideBar from "./components/SideBar/SideBar";
 import Home from "./Pages/Home/Home";
 import Stock from "./Pages/Stock/Stock";
 import Order from "./Pages/Order/Order";
-import Detail from "./Pages/Detail/Detail";
+import StockDetail from "./Pages/StockDetail/StockDetail";
 import Add from "./Pages/Add/Add";
 
 export default function App() {
@@ -17,7 +17,7 @@ export default function App() {
         <SideBar />
         <Switch>
           <Route path="/stock" component={Stock} />
-          <Route path="/stock/detail/:productId" component={Detail} />
+          <Route path="/stock/detail/:productId" component={StockDetail} />
           <Route path="/order" component={Order} />
           <Route path="/add" component={Add} />
           <Route exact path="/" component={Home} />

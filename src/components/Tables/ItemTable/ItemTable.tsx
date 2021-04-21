@@ -10,6 +10,8 @@ const ItemTable = () => {
             .then(response => response.json())
             .then(stocks => {
                 setStocks(stocks);
+                console.log(stocks);
+                
             });
         },[])
 

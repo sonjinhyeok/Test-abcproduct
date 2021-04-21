@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router';
 import Header from '../../components/Header/Header';
-import './Detail.scss';
+import './StockDetail.scss';
 
-const Detail = () => {
+const StockDetail = () => {
     const history = useHistory();
 
     const { productId } : any = useParams();
@@ -13,7 +13,7 @@ const Detail = () => {
     const [stocks, setStocks] = useState<any[]>([]);
 
     useEffect(() => {   
-        fetch(`http://localhost:8080/stock/detail?productId=${productId}`)
+        fetch(`stock/detail?productId=${productId}`)
         .then(response => response.json())
         .then(stocks => setStocks(stocks));
 
@@ -72,4 +72,4 @@ const Detail = () => {
     );
 }
 
-export default Detail;
+export default StockDetail;
