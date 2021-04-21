@@ -1,7 +1,7 @@
 module.exports = {
                                        // モード値を production に設定すると最適化された状態で、
   mode: "production",                  // development に設定するとソースマップ有効でJSファイルが出力される
-  entry: "./src/index.tsx",             // メインとなるファイル（エントリーポイント）
+  entry: "./src/index.tsx",            // メインとなるファイル（エントリーポイント）
 
   output: {                            // ファイルの出力設定
     path: `${__dirname}/dist`,         //  出力ファイルのディレクトリ名

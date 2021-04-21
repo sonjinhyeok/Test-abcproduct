@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import 'font-awesome/css/font-awesome.min.css';
 import "./App.scss";
@@ -16,11 +16,13 @@ export default function App() {
       <div className="App">
         <SideBar />
         <Switch>
+          <Fragment>
+          <Route exact path="/">
+            <Home/>
+          </Route>
           <Route path="/stock">
             <Stock/>
-          </Route>
-          <Route exact path="/stock/detail/:productId" >
-            <StockDetail/>
+            <Route exact path="/stock/detail/:productId" component={StockDetail} />
           </Route>
           <Route path="/order">
             <Order/>
@@ -28,9 +30,7 @@ export default function App() {
           <Route path="/add">
             <Add/>
           </Route>
-          <Route exact path="/">
-            <Home/>
-          </Route>
+          </Fragment>
         </Switch>
       </div>
     </Router>

@@ -4,6 +4,7 @@ import Header from '../../components/Header/Header';
 import './StockDetail.scss';
 
 const StockDetail = () => {
+    
     const history = useHistory();
 
     const { productId } : any = useParams();
@@ -13,7 +14,7 @@ const StockDetail = () => {
     const [stocks, setStocks] = useState<any[]>([]);
 
     useEffect(() => {   
-        fetch(`stock/detail?productId=${productId}`)
+        fetch(`/stock/detail/${productId}`)
         .then(response => response.json())
         .then(stocks => setStocks(stocks));
 
@@ -23,21 +24,21 @@ const StockDetail = () => {
         history.push("/stock");
     }
 
-    // 削除
-    const handleDelete = () => {
-        if(window.confirm("削除しますか？")){
-            fetch(`http://localhost:8080/stock/detail?productId=${productId}`, {
-                method: "DELETE",
-            })
-        }
-        history.push("/stock");
-    }
+    // // 削除
+    // const handleDelete = () => {
+    //     if(window.confirm("削除しますか？")){
+    //         fetch(`http://localhost:8080/stock/detail?productId=${productId}`, {
+    //             method: "DELETE",
+    //         })
+    //     }
+    //     history.push("/stock");
+    // }
 
     return(
         <div className="container">
             <Header title="在庫詳細"/>
                 {stocks.map( stock => (
-                <div>
+                <div key={stock.productId}>
                     <div className="detail">
                         <div className="detail__title">ID</div>
                         <div className="detail__content">{stock.productId}</div>
@@ -62,7 +63,7 @@ const StockDetail = () => {
             ))}
             <div className="buttons">
                 <div className="button">
-                    <button className="delete__button" onClick={handleDelete}>削除</button>
+                    <button className="delete__button">削除</button>
                 </div>
                 <div className="button">
                     <button className="close__button" onClick={handleClick}>戻る</button>

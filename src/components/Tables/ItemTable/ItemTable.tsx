@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './ItemTable.scss';
 
 const ItemTable = () => {
+    
     const [stocks, setStocks] = useState<any[]>([]);
 
     useEffect(() => {
@@ -26,7 +27,7 @@ const ItemTable = () => {
             </tr>
             </thead>
             <tbody>
-            {stocks.map((stock) => (
+            {stocks.map(stock => (
                 <tr key={stock.productId}>
                     <td>
                         <Link to={`/stock/detail/${stock.productId}`} className="link__text">{stock.productId}</Link>
