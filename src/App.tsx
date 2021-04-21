@@ -16,11 +16,21 @@ export default function App() {
       <div className="App">
         <SideBar />
         <Switch>
-          <Route path="/stock" component={Stock} />
-          <Route path="/stock/detail/:productId" component={StockDetail} />
-          <Route path="/order" component={Order} />
-          <Route path="/add" component={Add} />
-          <Route exact path="/" component={Home} />
+          <Route path="/stock">
+            <Stock/>
+          </Route>
+          <Route exact path="/stock/detail/:productId" >
+            <StockDetail/>
+          </Route>
+          <Route path="/order">
+            <Order/>
+          </Route>
+          <Route path="/add">
+            <Add/>
+          </Route>
+          <Route exact path="/">
+            <Home/>
+          </Route>
         </Switch>
       </div>
     </Router>
