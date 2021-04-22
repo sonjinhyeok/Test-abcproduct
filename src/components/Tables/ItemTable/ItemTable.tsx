@@ -30,19 +30,19 @@ const ItemTable = () => {
             {stocks.map(stock => (
                 <tr key={stock.productId}>
                     <td>
-                        <Link to={`/stock/detail/${stock.productId}`} className="link__text">{stock.productId}</Link>
+                        <Link to={`/stock/${stock.productId}`} className="link__text">{stock.productId}</Link>
                     </td>
                     <td>
-                        <Link to={`/stock/detail/${stock.productId}`} className="link__text">{stock.products[0].productName}</Link>
+                        <Link to={`/stock/${stock.productId}`} className="link__text">{stock.products[0].productName}</Link>
                     </td>
                     <td>
-                        <Link to={`/stock/detail/${stock.productId}`} className="link__text">{stock.stockCount} 車</Link>
+                        <Link to={`/stock/${stock.productId}`} className="link__text">{stock.stockCount} 車</Link>
                     </td>
                     <td>
-                        <Link to={`/stock/detail/${stock.productId}`} className="link__text">{stock.products[0].productPrice} 万円</Link>
+                        <Link to={`/stock/${stock.productId}`} className="link__text">{stock.products[0].productPrice} 万円</Link>
                     </td>
                     <td>
-                        <Link to={`/stock/detail/${stock.productId}`} className="link__text">{stock.warehouses[0].warehouseName}</Link>
+                        <Link to={`/stock/${stock.productId}`} className="link__text">{stock.warehouses[0].warehouseName}</Link>
                     </td>
                 </tr>
             ))}

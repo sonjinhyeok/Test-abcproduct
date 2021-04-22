@@ -14,7 +14,7 @@ const StockDetail = () => {
     const [stocks, setStocks] = useState<any[]>([]);
 
     useEffect(() => {   
-        fetch(`/stock/detail/${productId}`)
+        fetch(`/stock/${productId}`)
         .then(response => response.json())
         .then(stocks => setStocks(stocks));
 

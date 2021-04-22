@@ -1,11 +1,13 @@
-import Form from '../../components/SearchForm/SearchForm';
-import ItemTable from '../../components/Tables/ItemTable/ItemTable';
 import PageButton from '../../components/PageButton/PageButton';
+import ItemTable from '../../components/Tables/ItemTable/ItemTable';
+import SearchForm from '../../components/SearchForm/SearchForm';
+import React from 'react';
 
 const Stock = () => { 
+
     return(
         <div className="container">
-            <Form />
+            <SearchForm /> 
             <ItemTable />
             <PageButton />
         </div>
