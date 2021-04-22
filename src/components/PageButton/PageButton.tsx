@@ -2,18 +2,27 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './PageButton.scss'
 
-const PageButton = () => {
+const PageButton = ({ stocksPerPage, totalStocks, paginate } : any) => {
+    const pageNumbers = [];
+    for (let i = 1; i <= Math.ceil(totalStocks / stocksPerPage); i++) {
+        pageNumbers.push(i);
+    }
+
     return(
         <div className="buttons">
-            <button className="buttons__button">前</button>
-            <button className="buttons__button">１</button>
-            <button className="buttons__button">２</button>
-            <button className="buttons__button">次</button>
-            <div>
-                <Link to="/add">
-                    <button className="buttons__add">登録</button>
-                </Link>
-            </div>
+            <ul className="pagination">
+            {pageNumbers.map(number => (
+                <li key={number} className="page-item">
+                    <span onClick={() => paginate(number)} className="page-link">
+                        {number}
+                    </span>
+                </li>
+            ))}
+            <Link to="/add">
+                <button className="buttons__add">登録</button>
+            </Link>
+            </ul>
+            
         </div>
     );
 }

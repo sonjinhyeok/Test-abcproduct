@@ -1,21 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './ItemTable.scss';
 
-const ItemTable = () => {
+const ItemTable = ({stocks, setStock, loading} : any) => {
     
-    const [stocks, setStocks] = useState<any[]>([]);
-
-    useEffect(() => {
-        fetch('/stock')
-            .then(response => response.json())
-            .then(stocks => {
-                setStocks(stocks);
-            });
-        },[])
-
     return(
         <>
+        { loading && <h1>Data loading...</h1> }
         <table className="item_table">
             <thead>
             <tr>
@@ -27,7 +18,7 @@ const ItemTable = () => {
             </tr>
             </thead>
             <tbody>
-            {stocks.map(stock => (
+            {stocks.map( (stock: any)=> (
                 <tr key={stock.productId}>
                     <td>
                         <Link to={`/stock/${stock.productId}`} className="link__text">{stock.productId}</Link>
