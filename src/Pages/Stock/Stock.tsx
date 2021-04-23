@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 
 const Stock = () => { 
     const [stocks, setStocks] = useState<any[]>([]);
+    const [searchTerm, setSearchTerm] = useState("");
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [stocksPerPage, setStocksPerPage] = useState(5);
@@ -26,11 +27,23 @@ const Stock = () => {
         return currentStocks;
     }
     
+    const handleChange = (event : any) => {
+        setSearchTerm(event.target.value);
+    }
     return(
         <div className="container">
-            <SearchForm /> 
+            <SearchForm 
+                handleChange={handleChange}
+            />
             <ItemTable 
-                stocks={currentStocks(stocks)} 
+                stocks={currentStocks(stocks.filter((stock: any) => {
+                    if (searchTerm == "") {
+                        return stock;
+                    } else if (stock.products[0].productName.toLowerCase().includes(searchTerm.toLowerCase())) {
+                        return stock;
+                    } else if (stock.warehouses[0].warehouseName.toLowerCase().includes(searchTerm.toLowerCase())) {
+                        return stock;
+                    }}))}
                 loading={loading}
             />
             <PageButton 

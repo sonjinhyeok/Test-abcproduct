@@ -1,5 +1,7 @@
 .buttons{
     margin-top: 2rem;
+    display: flex;
+    
     .button{
         margin-left: 1rem;
     }
@@ -19,6 +21,7 @@
     &:active {
         background: darken(red,10%); 
     }
+    
     .close__button{
         width: 8rem;
         height: 50px;
@@ -58,7 +61,7 @@ $media-phone: 768px;
     font-size: 1.5rem;
     
     &__title{
-        width: 15rem;
+        width: 60%;
         height: 3rem;
         padding: 0.5rem;
         background-color: #233346;

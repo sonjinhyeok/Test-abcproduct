@@ -1,13 +1,28 @@
 import React from 'react';
 import './SearchForm.scss';
 
-const Form = () => {
+const SearchForm = ({handleChange} : any) => {
+
+    const handleSubmit = (event : any) => {
+        event.preventDefault();
+    }
     return(
-        <form className="search__form">
-            <input className="search__form__input" type="text" placeholder="キーワードを入力してください。"/>
-            <button className="search__form__btn">検索</button>
+        <form 
+            className="search__form"
+            onSubmit={handleSubmit}>
+            <input 
+                className="search__form__input" 
+                type="text" 
+                placeholder="商品名を検索してください"
+                onChange={handleChange}
+            />
+            <input 
+                className="search__form__btn"
+                type="submit"
+                value="検索"
+            />
         </form>
     );
 }
 
-export default Form;
+export default SearchForm;
