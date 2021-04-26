@@ -2,11 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './ItemTable.scss';
 
-const ItemTable = ({stocks, loading} : any) => {
+const ItemTable = ({stocks} : any) => {
     
     return(
-        <>
-        { loading && <h1>Data loading...</h1> }
         <table className="item_table">
             <thead>
             <tr>
@@ -39,7 +37,6 @@ const ItemTable = ({stocks, loading} : any) => {
             ))}
             </tbody>
         </table>
-        </>
     );
 }
     

@@ -2,20 +2,33 @@ import PageButton from '../../components/PageButton/PageButton';
 import ItemTable from '../../components/Tables/ItemTable/ItemTable';
 import SearchForm from '../../components/SearchForm/SearchForm';
 import React, { useEffect, useState } from 'react';
+import { BaseAPI, Configuration } from '../../api';
 
 const Stock = () => { 
     const [stocks, setStocks] = useState<any[]>([]);
     const [searchTerm, setSearchTerm] = useState("");
-    const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [stocksPerPage, setStocksPerPage] = useState(5);
 
-    useEffect(() => {
+    const conf = new Configuration({
+        basePath: 'http://localhost:8080',
+    });
+
+    const baseApi = new BaseAPI(conf);
+
+    baseApi.stockGet({
+        
+    })
+
+
+    useEffect( () => {
         fetch('/stock')
-            .then(response => response.json())
-            .then(stocks => {
-                setStocks(stocks);
-        });
+        .then(response => response.json())
+        .then(stocks => setStocks(stocks))
+        .catch(() => console.log("DB接続失敗しました。"))
+    },[])
+
+    useEffect(() => {
     },[])
 
     const indexOfLast = currentPage * stocksPerPage;
@@ -43,8 +56,8 @@ const Stock = () => {
                         return stock;
                     } else if (stock.warehouses[0].warehouseName.toLowerCase().includes(searchTerm.toLowerCase())) {
                         return stock;
-                    }}))}
-                loading={loading}
+                    }}
+                ))}
             />
             <PageButton 
                 stocksPerPage={stocksPerPage} 
