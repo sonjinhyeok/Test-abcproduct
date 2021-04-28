@@ -1,25 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router';
+import { StockApi } from '../../api';
 import Header from '../../components/Header/Header';
 import './StockDetail.scss';
 
 const StockDetail = () => {
+
+    const [stocks, setStocks] = useState<any[]>([]);
+
+    const {productId} = useParams<any>();
     
     const history = useHistory();
 
-    const { productId } : any = useParams();
+    const stockApi = new StockApi();
+
+    useEffect(() => {
+        stockApi.stockDetailProductIdGet(productId)
+        .then(( stocks : any ) => {
+            setStocks(stocks);
+        })
+    },[productId]);
     
-    // const stockList = data.stocks.filter(stock => stock.productId === Number(productId));
-    
-    const [stocks, setStocks] = useState<any[]>([]);
-
-    useEffect(() => {   
-        fetch(`/stock/detail/${productId}`)
-        .then(response => response.json())
-        .then(stocks => setStocks(stocks));
-
-    }, [productId]);
-
     const handleClick = () => {
         history.push("/stock");
     }
@@ -27,9 +28,7 @@ const StockDetail = () => {
      // 削除
     const handleDelete = () => {
         if(window.confirm("削除しますか？")){
-            fetch(`/stock/detail/${productId}`, {
-                method: 'DELETE'
-            })
+            stockApi.stockDetailProductIdDelete(productId)
         }
         history.push("/stock");
     }
@@ -45,7 +44,7 @@ const StockDetail = () => {
                     </div>
                     <div className="detail">
                         <div className="detail__title">商品名</div>
-                        <div className="detail__content">{stock.products[0].productName}</div>
+                        <div className="detail__content">{stock.products.productName}</div>
                     </div>
                     <div className="detail">
                         <div className="detail__title">商品数</div>
@@ -53,11 +52,23 @@ const StockDetail = () => {
                     </div>
                     <div className="detail">
                         <div className="detail__title">単価</div>
-                        <div className="detail__content">{stock.products[0].productPrice} 万円</div>
+                        <div className="detail__content">{stock.products.productPrice} 万円</div>
+                    </div>
+                    <div className="detail">
+                        <div className="detail__title">倉庫ID</div>
+                        <div className="detail__content">{stock.warehouses.warehouseId}</div>
                     </div>
                     <div className="detail">
                         <div className="detail__title">倉庫名</div>
-                        <div className="detail__content">{stock.warehouses[0].warehouseName}</div>
+                        <div className="detail__content">{stock.warehouses.warehouseName}</div>
+                    </div>
+                    <div className="detail">
+                        <div className="detail__title">倉庫住所</div>
+                        <div className="detail__content">{stock.warehouses.warehouseAddress}</div>
+                    </div>
+                    <div className="detail">
+                        <div className="detail__title">入出状況</div>
+                        <div className="detail__content">{stock.stockIn ? '❌' : '⭕️'}</div>
                     </div>
                 </div>
             ))}

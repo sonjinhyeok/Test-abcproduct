@@ -2,7 +2,7 @@
 // tslint:disable
 /**
  * ABCProduct
- * ABCProduct 在庫の検索API
+ * ABCProduct API
  *
  * OpenAPI spec version: 0.1.9
  * 
@@ -106,7 +106,7 @@ export interface Stocks {
      * @type {number}
      * @memberof Stocks
      */
-    stockCounts?: number;
+    stockCount?: number;
     /**
      * 
      * @type {boolean}
@@ -145,8 +145,94 @@ export interface Stocks {
 export const StockApiFetchParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * 全ての在庫表示
-         * @summary 全ての在庫表示
+         * 商品を各テーブルに1件登録する
+         * @summary 商品登録情報
+         * @param {Stocks} [body] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        stockAddPost(body?: Stocks, options: any = {}): FetchArgs {
+            const localVarPath = `/stock/add`;
+            const localVarUrlObj = url.parse(localVarPath, true);
+            const localVarRequestOptions = Object.assign({ method: 'POST' }, options);
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            localVarRequestOptions.headers = Object.assign({}, localVarHeaderParameter, options.headers);
+            const needsSerialization = (<any>"Stocks" !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.body =  needsSerialization ? JSON.stringify(body || {}) : (body || "");
+
+            return {
+                url: url.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * IDと一致する削除
+         * @summary IDと一致する削除
+         * @param {number} productId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        stockDetailProductIdDelete(productId: number, options: any = {}): FetchArgs {
+            // verify required parameter 'productId' is not null or undefined
+            if (productId === null || productId === undefined) {
+                throw new RequiredError('productId','Required parameter productId was null or undefined when calling stockDetailProductIdDelete.');
+            }
+            const localVarPath = `/stock/detail/{productId}`
+                .replace(`{${"productId"}}`, encodeURIComponent(String(productId)));
+            const localVarUrlObj = url.parse(localVarPath, true);
+            const localVarRequestOptions = Object.assign({ method: 'DELETE' }, options);
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            localVarRequestOptions.headers = Object.assign({}, localVarHeaderParameter, options.headers);
+
+            return {
+                url: url.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * IDと一致する商品
+         * @summary IDと一致する商品
+         * @param {number} productId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        stockDetailProductIdGet(productId: number, options: any = {}): FetchArgs {
+            // verify required parameter 'productId' is not null or undefined
+            if (productId === null || productId === undefined) {
+                throw new RequiredError('productId','Required parameter productId was null or undefined when calling stockDetailProductIdGet.');
+            }
+            const localVarPath = `/stock/detail/{productId}`
+                .replace(`{${"productId"}}`, encodeURIComponent(String(productId)));
+            const localVarUrlObj = url.parse(localVarPath, true);
+            const localVarRequestOptions = Object.assign({ method: 'GET' }, options);
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            localVarRequestOptions.headers = Object.assign({}, localVarHeaderParameter, options.headers);
+
+            return {
+                url: url.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 全ての商品表示
+         * @summary 全ての商品表示
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -168,19 +254,19 @@ export const StockApiFetchParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * IDごとの在庫
-         * @summary IDごとの在庫
-         * @param {number} productId 在庫ID
+         * keywordで検索する
+         * @summary keywordで検索する
+         * @param {string} keyword 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        stockProductIdGet(productId: number, options: any = {}): FetchArgs {
-            // verify required parameter 'productId' is not null or undefined
-            if (productId === null || productId === undefined) {
-                throw new RequiredError('productId','Required parameter productId was null or undefined when calling stockProductIdGet.');
+        stockKeywordGet(keyword: string, options: any = {}): FetchArgs {
+            // verify required parameter 'keyword' is not null or undefined
+            if (keyword === null || keyword === undefined) {
+                throw new RequiredError('keyword','Required parameter keyword was null or undefined when calling stockKeywordGet.');
             }
-            const localVarPath = `/stock/{productId}`
-                .replace(`{${"productId"}}`, encodeURIComponent(String(productId)));
+            const localVarPath = `/stock/{keyword}`
+                .replace(`{${"keyword"}}`, encodeURIComponent(String(keyword)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions = Object.assign({ method: 'GET' }, options);
             const localVarHeaderParameter = {} as any;
@@ -206,8 +292,65 @@ export const StockApiFetchParamCreator = function (configuration?: Configuration
 export const StockApiFp = function(configuration?: Configuration) {
     return {
         /**
-         * 全ての在庫表示
-         * @summary 全ての在庫表示
+         * 商品を各テーブルに1件登録する
+         * @summary 商品登録情報
+         * @param {Stocks} [body] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        stockAddPost(body?: Stocks, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<Stocks> {
+            const localVarFetchArgs = StockApiFetchParamCreator(configuration).stockAddPost(body, options);
+            return (fetch: FetchAPI = portableFetch, basePath: string = BASE_PATH) => {
+                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
+                    if (response.status >= 200 && response.status < 300) {
+                        return response.json();
+                    } else {
+                        throw response;
+                    }
+                });
+            };
+        },
+        /**
+         * IDと一致する削除
+         * @summary IDと一致する削除
+         * @param {number} productId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        stockDetailProductIdDelete(productId: number, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<Stocks> {
+            const localVarFetchArgs = StockApiFetchParamCreator(configuration).stockDetailProductIdDelete(productId, options);
+            return (fetch: FetchAPI = portableFetch, basePath: string = BASE_PATH) => {
+                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
+                    if (response.status >= 200 && response.status < 300) {
+                        return response.json();
+                    } else {
+                        throw response;
+                    }
+                });
+            };
+        },
+        /**
+         * IDと一致する商品
+         * @summary IDと一致する商品
+         * @param {number} productId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        stockDetailProductIdGet(productId: number, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<Stocks> {
+            const localVarFetchArgs = StockApiFetchParamCreator(configuration).stockDetailProductIdGet(productId, options);
+            return (fetch: FetchAPI = portableFetch, basePath: string = BASE_PATH) => {
+                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
+                    if (response.status >= 200 && response.status < 300) {
+                        return response.json();
+                    } else {
+                        throw response;
+                    }
+                });
+            };
+        },
+        /**
+         * 全ての商品表示
+         * @summary 全ての商品表示
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -224,14 +367,14 @@ export const StockApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * IDごとの在庫
-         * @summary IDごとの在庫
-         * @param {number} productId 在庫ID
+         * keywordで検索する
+         * @summary keywordで検索する
+         * @param {string} keyword 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        stockProductIdGet(productId: number, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<Stocks> {
-            const localVarFetchArgs = StockApiFetchParamCreator(configuration).stockProductIdGet(productId, options);
+        stockKeywordGet(keyword: string, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<Stocks> {
+            const localVarFetchArgs = StockApiFetchParamCreator(configuration).stockKeywordGet(keyword, options);
             return (fetch: FetchAPI = portableFetch, basePath: string = BASE_PATH) => {
                 return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                     if (response.status >= 200 && response.status < 300) {
@@ -252,8 +395,38 @@ export const StockApiFp = function(configuration?: Configuration) {
 export const StockApiFactory = function (configuration?: Configuration, fetch?: FetchAPI, basePath?: string) {
     return {
         /**
-         * 全ての在庫表示
-         * @summary 全ての在庫表示
+         * 商品を各テーブルに1件登録する
+         * @summary 商品登録情報
+         * @param {Stocks} [body] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        stockAddPost(body?: Stocks, options?: any) {
+            return StockApiFp(configuration).stockAddPost(body, options)(fetch, basePath);
+        },
+        /**
+         * IDと一致する削除
+         * @summary IDと一致する削除
+         * @param {number} productId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        stockDetailProductIdDelete(productId: number, options?: any) {
+            return StockApiFp(configuration).stockDetailProductIdDelete(productId, options)(fetch, basePath);
+        },
+        /**
+         * IDと一致する商品
+         * @summary IDと一致する商品
+         * @param {number} productId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        stockDetailProductIdGet(productId: number, options?: any) {
+            return StockApiFp(configuration).stockDetailProductIdGet(productId, options)(fetch, basePath);
+        },
+        /**
+         * 全ての商品表示
+         * @summary 全ての商品表示
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -261,14 +434,14 @@ export const StockApiFactory = function (configuration?: Configuration, fetch?: 
             return StockApiFp(configuration).stockGet(options)(fetch, basePath);
         },
         /**
-         * IDごとの在庫
-         * @summary IDごとの在庫
-         * @param {number} productId 在庫ID
+         * keywordで検索する
+         * @summary keywordで検索する
+         * @param {string} keyword 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        stockProductIdGet(productId: number, options?: any) {
-            return StockApiFp(configuration).stockProductIdGet(productId, options)(fetch, basePath);
+        stockKeywordGet(keyword: string, options?: any) {
+            return StockApiFp(configuration).stockKeywordGet(keyword, options)(fetch, basePath);
         },
     };
 };
@@ -281,8 +454,44 @@ export const StockApiFactory = function (configuration?: Configuration, fetch?: 
  */
 export class StockApi extends BaseAPI {
     /**
-     * 全ての在庫表示
-     * @summary 全ての在庫表示
+     * 商品を各テーブルに1件登録する
+     * @summary 商品登録情報
+     * @param {Stocks} [body] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StockApi
+     */
+    public stockAddPost(body?: Stocks, options?: any) {
+        return StockApiFp(this.configuration).stockAddPost(body, options)(this.fetch, this.basePath);
+    }
+
+    /**
+     * IDと一致する削除
+     * @summary IDと一致する削除
+     * @param {number} productId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StockApi
+     */
+    public stockDetailProductIdDelete(productId: number, options?: any) {
+        return StockApiFp(this.configuration).stockDetailProductIdDelete(productId, options)(this.fetch, this.basePath);
+    }
+
+    /**
+     * IDと一致する商品
+     * @summary IDと一致する商品
+     * @param {number} productId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StockApi
+     */
+    public stockDetailProductIdGet(productId: number, options?: any) {
+        return StockApiFp(this.configuration).stockDetailProductIdGet(productId, options)(this.fetch, this.basePath);
+    }
+
+    /**
+     * 全ての商品表示
+     * @summary 全ての商品表示
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof StockApi
@@ -292,15 +501,15 @@ export class StockApi extends BaseAPI {
     }
 
     /**
-     * IDごとの在庫
-     * @summary IDごとの在庫
-     * @param {number} productId 在庫ID
+     * keywordで検索する
+     * @summary keywordで検索する
+     * @param {string} keyword 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof StockApi
      */
-    public stockProductIdGet(productId: number, options?: any) {
-        return StockApiFp(this.configuration).stockProductIdGet(productId, options)(this.fetch, this.basePath);
+    public stockKeywordGet(keyword: string, options?: any) {
+        return StockApiFp(this.configuration).stockKeywordGet(keyword, options)(this.fetch, this.basePath);
     }
 
 }

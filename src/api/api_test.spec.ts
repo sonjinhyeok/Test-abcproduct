@@ -1,6 +1,6 @@
 /**
  * ABCProduct
- * ABCProduct 在庫の検索API
+ * ABCProduct API
  *
  * OpenAPI spec version: 0.1.9
  * 
@@ -21,12 +21,24 @@ describe("StockApi", () => {
     instance = new api.StockApi(config)
   });
 
+  test("stockAddPost", () => {
+    const body: api.Stocks = undefined
+    return expect(instance.stockAddPost(body, {})).resolves.toBe(null)
+  })
+  test("stockDetailProductIdDelete", () => {
+    const productId: number = 56
+    return expect(instance.stockDetailProductIdDelete(productId, {})).resolves.toBe(null)
+  })
+  test("stockDetailProductIdGet", () => {
+    const productId: number = 56
+    return expect(instance.stockDetailProductIdGet(productId, {})).resolves.toBe(null)
+  })
   test("stockGet", () => {
     return expect(instance.stockGet({})).resolves.toBe(null)
   })
-  test("stockProductIdGet", () => {
-    const productId: number = 789
-    return expect(instance.stockProductIdGet(productId, {})).resolves.toBe(null)
+  test("stockKeywordGet", () => {
+    const keyword: string = "keyword_example"
+    return expect(instance.stockKeywordGet(keyword, {})).resolves.toBe(null)
   })
 })
 

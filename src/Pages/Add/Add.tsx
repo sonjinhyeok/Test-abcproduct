@@ -1,5 +1,6 @@
-import { useRef } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
+import { StockApi } from '../../api';
 import Header from '../../components/Header/Header';
 import './Add.scss';
 
@@ -10,57 +11,51 @@ const Add = () => {
         history.push("/stock")
     }
 
+    const stockApi = new StockApi();
+
     const onSubmit = (event : any) => {
         event.preventDefault();
-
-        fetch(`/stock/`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                productId: productIdRef.current.value,
-                productName: productNameRef.current.value,
-                stockCount: stockCountRef.current.value,
-                productPrice: productPriceRef.current.value,
-                warehouseName: warehouseNameRef.current.value
-            }),
-        }).then(response => {
-            if(response.ok) {
-                alert("商品が登録されました。")
-            }
-        });
+        if(window.confirm("登録しますか？")){
+            stockApi.stockAddPost();
+        }
     }
-
-    const productIdRef : any = useRef(null);
-    const productNameRef : any = useRef(null);
-    const stockCountRef : any = useRef(null);
-    const productPriceRef : any = useRef(null);
-    const warehouseNameRef : any = useRef(null);
-
+    
     return(
         <div className="container">
             <Header title="在庫登録" />
             <form onSubmit={onSubmit}>
                 <div className="add">
                     <label className="add__label">ID</label>
-                    <input className="add__input" type="text" placeholder="1" ref={productIdRef}/>
+                    <input className="add__input" type="text" placeholder="ID" />
                 </div>
                 <div className="add">
                     <label className="add__label">商品名</label>
-                    <input className="add__input" type="text" placeholder="DDD自動車" ref={productNameRef}/>
+                    <input className="add__input" type="text" placeholder="DDD自動車" />
                 </div>
                 <div className="add">
                     <label className="add__label">商品数</label>
-                    <input className="add__input" type="text" placeholder="400" ref={stockCountRef}/>
+                    <input className="add__input" type="text" placeholder="400" />
                 </div>
                 <div className="add">
                     <label className="add__label">単価</label>
-                    <input className="add__input" type="text" placeholder="300" ref={productPriceRef}/>
+                    <input className="add__input" type="text" placeholder="300" />
                 </div>
                 <div className="add">
-                    <label className="add__label">倉庫名</label>
-                    <input className="add__input" type="text" placeholder="東京倉庫" ref={warehouseNameRef}/>
+                    <label className="add__label">倉庫</label>
+                    <select name="stocks" className="add__input">
+                        <option value="">倉庫を選択してください</option>
+                        <option value="warehouseId">9001（東京倉庫）</option>
+                        <option value="warehouseId">9002（横浜倉庫）</option>
+                        <option value="warehouseId">9003（吉祥寺倉庫）</option>
+                    </select>
+                </div>
+                <div className="add">
+                    <label className="add__label">入出</label>
+                    <select name="stocks" className="add__input">
+                        <option value="">入出を選択してください</option>
+                        <option value="stockIn">入庫</option>
+                        <option value="stockOut">出庫</option>
+                    </select>
                 </div>
                 <div className="buttons">
                     <div className="button">

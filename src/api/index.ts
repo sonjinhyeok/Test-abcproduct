@@ -1,7 +1,7 @@
 // tslint:disable
 /**
  * ABCProduct
- * ABCProduct 在庫の検索API
+ * ABCProduct API
  *
  * OpenAPI spec version: 0.1.9
  * 

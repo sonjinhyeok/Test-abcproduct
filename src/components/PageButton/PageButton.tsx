@@ -18,7 +18,7 @@ const PageButton = ({ stocksPerPage, totalStocks, paginate } : any) => {
                     </span>
                 </li>
             ))}
-            <Link to="/add">
+            <Link to="/stock/add">
                 <button className="buttons__add">登録</button>
             </Link>
             </ul>

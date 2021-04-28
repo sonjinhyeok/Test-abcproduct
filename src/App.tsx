@@ -18,10 +18,10 @@ export default function App() {
         <Route exact path="/" component={Home} />
         <Switch>
           <Route path="/stock/detail/:productId" component={StockDetail} />
+          <Route path="/stock/add" component={Add} />
           <Route path="/stock" component={Stock} />
-          <Route path="/order" component={Order} />
-          <Route path="/add" component={Add} />
         </Switch>
+        <Route path="/order" component={Order} />
       </div>
     </Router>
   );

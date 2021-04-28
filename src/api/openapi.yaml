@@ -1,23 +1,20 @@
 openapi: 3.0.0
 info:
   title: ABCProduct
-  description: ABCProduct 在庫の検索API
+  description: ABCProduct API
   version: 0.1.9
-
-servers: 
-  - url: http://localhost:8080
-
+servers:
+- url: http://localhost:8080
 tags:
-  - name: stock
-    description: 在庫の検索
-
+- name: stock
+  description: 在庫
 paths:
-  /stock: # 全ての在庫表示
+  /stock:
     get:
       tags:
-        - stock
-      summary: 全ての在庫表示
-      description: 全ての在庫表示
+      - stock
+      summary: 全ての商品表示
+      description: 全ての商品表示
       responses:
         "200":
           description: Success
@@ -26,27 +23,28 @@ paths:
               schema:
                 $ref: '#/components/schemas/Stocks'
         "400":
-          description: 在庫IDは無効です
+          description: 商品IDは無効です
         "404":
-          description: 在庫IDが見つかりませんでした
+          description: 商品IDが見つかりませんでした
         default:
           description: 予期しないエラー
-
-  /stock/{productId}: # IDごとの在庫
+  /stock/{productId}:
     get:
       tags:
-        - stock
-      summary: IDごとの在庫
-      description: IDごとの在庫
+      - stock
+      summary: IDごとの商品
+      description: IDごとの商品
       parameters:
-        - name: productId
-          in: path
-          description: 在庫ID
-          required: true
-          schema:
-            type: integer
-            format: int64
-            example: 1
+      - name: productId
+        in: path
+        description: 商品ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+          example: 1
       responses:
         "200":
           description: Success
@@ -55,16 +53,62 @@ paths:
               schema:
                 $ref: '#/components/schemas/Stocks'
         "400":
-          description: 在庫IDは無効です
+          description: 商品IDは無効です
         "404":
-          description: 在庫IDが見つかりませんでした
+          description: 商品IDが見つかりませんでした
         default:
           description: 予期しないエラー
-
-# definitions
+  /stock/detail/{productId}:
+    delete:
+      tags:
+      - stock
+      summary: 商品削除
+      description: 商品削除
+      parameters:
+      - name: productId
+        in: path
+        description: 商品ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+          example: 1
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stocks'
+        "400":
+          description: 商品IDは無効です
+        "404":
+          description: 商品IDが見つかりませんでした
+        default:
+          description: 予期しないエラー
+  /stock/add/:
+    post:
+      tags:
+      - stock
+      summary: 商品登録情報
+      description: 商品を各テーブルに1件登録する
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/body'
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stocks'
 components:
   schemas:
-    Stocks: # テンプレート名
+    Stocks:
       type: object
       properties:
         productId:
@@ -74,12 +118,11 @@ components:
         productName:
           type: string
           format: byte
-          example: "AAA自動車"
         productPrice:
           type: integer
           format: int64
           example: 1000
-        stockCounts:
+        stockCount:
           type: integer
           format: int64
           example: 100
@@ -96,9 +139,19 @@ components:
         warehouseName:
           type: string
           format: byte
-          example: "東京倉庫"
         warehouseAddress:
           type: string
           format: byte
-          example: "東京都千代田区1-1-1"
-        
+    body:
+      type: object
+      properties:
+        productId:
+          type: integer
+        productName:
+          type: string
+        productPrice:
+          type: integer
+        stockCount:
+          type: integer
+        warehouseName:
+          type: string
